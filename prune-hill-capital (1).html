@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prune Hill Capital — Student Investment Fund | RHUL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,600;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --forest:    #1c3d2e;
+  --sage:      #3a6b50;
+  --moss:      #5a8c6e;
+  --pale:      #9bbfaa;
+  --cream:     #f5f1ea;
+  --warm:      #eae4d8;
+  --parchment: #d8d0c0;
+  --ink:       #1a1916;
+  --ember:     #b85c35;
+  --muted:     #7a7266;
+  --white:     #ffffff;
+  --rule:      rgba(58,107,80,0.15);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--parchment); }
+
+/* ═══════════════════════════════
+   NAV
+═══════════════════════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 66px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 5vw;
+  background: rgba(245,241,234,0.95);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--rule);
+  transition: box-shadow .3s;
+}
+nav.scrolled { box-shadow: 0 2px 24px rgba(28,61,46,.07); }
+
+.nav-logo {
+  display: flex; align-items: center; gap: .7rem; cursor: pointer;
+  text-decoration: none;
+}
+.logo-icon {
+  width: 28px; height: 28px; background: var(--forest);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.logo-icon svg { width: 15px; height: 15px; }
+.logo-wordmark {
+  font-family: 'Cormorant', serif;
+  font-size: 1.05rem; font-weight: 600; color: var(--forest); line-height: 1.1;
+  letter-spacing: .02em;
+}
+.logo-wordmark small {
+  display: block; font-family: 'Jost', sans-serif;
+  font-size: .52rem; letter-spacing: .17em; text-transform: uppercase;
+  color: var(--moss); font-weight: 400;
+}
+
+.nav-links { display: flex; gap: 2.4rem; list-style: none; }
+.nav-links a {
+  font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+  font-weight: 400; color: var(--muted); text-decoration: none; cursor: pointer;
+  transition: color .2s; position: relative; padding-bottom: 2px;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -1px; left: 0; right: 100%;
+  height: 1px; background: var(--ember); transition: right .25s ease;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--forest); }
+.nav-links a:hover::after, .nav-links a.active::after { right: 0; }
+
+.nav-cta {
+  padding: .5rem 1.3rem;
+  background: var(--forest); color: var(--white);
+  font-size: .62rem; letter-spacing: .14em; text-transform: uppercase;
+  font-weight: 500; border: none; cursor: pointer;
+  font-family: 'Jost', sans-serif;
+  transition: background .2s;
+}
+.nav-cta:hover { background: var(--sage); }
+
+.burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
+.burger span { display: block; width: 21px; height: 1px; background: var(--forest); transition: all .3s; }
+
+/* ═══════════════════════════════
+   PAGE SYSTEM
+═══════════════════════════════ */
+.page { display: none; min-height: 100vh; padding-top: 66px; animation: pgIn .35s ease; }
+.page.active { display: block; }
+#home { padding-top: 0; }
+@keyframes pgIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+/* ═══════════════════════════════
+   HOME — HERO
+═══════════════════════════════ */
+.hero {
+  min-height: 100vh; padding-top: 66px;
+  background: var(--forest);
+  display: flex; flex-direction: column; justify-content: center;
+  padding-left: 5vw; padding-right: 5vw;
+  position: relative; overflow: hidden;
+}
+
+/* topographic rings */
+.hero::before {
+  content: '';
+  position: absolute; right: -5%; top: 50%; transform: translateY(-50%);
+  width: 650px; height: 650px;
+  background:
+    radial-gradient(circle, transparent 19%, rgba(255,255,255,.025) 20%, rgba(255,255,255,.025) 20.5%, transparent 21%),
+    radial-gradient(circle, transparent 29%, rgba(255,255,255,.025) 30%, rgba(255,255,255,.025) 30.5%, transparent 31%),
+    radial-gradient(circle, transparent 39%, rgba(255,255,255,.025) 40%, rgba(255,255,255,.025) 40.5%, transparent 41%),
+    radial-gradient(circle, transparent 49%, rgba(255,255,255,.025) 50%, rgba(255,255,255,.025) 50.5%, transparent 51%),
+    radial-gradient(circle, transparent 59%, rgba(255,255,255,.02) 60%, rgba(255,255,255,.02) 60.5%, transparent 61%),
+    radial-gradient(circle, transparent 69%, rgba(255,255,255,.015) 70%, rgba(255,255,255,.015) 70.5%, transparent 71%),
+    radial-gradient(circle, transparent 79%, rgba(255,255,255,.01) 80%, rgba(255,255,255,.01) 80.5%, transparent 81%);
+  background-size: 650px 650px;
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative; z-index: 2;
+  max-width: 860px;
+  animation: fadeUp .9s ease both;
+}
+
+.hero-tag {
+  font-size: .58rem; letter-spacing: .24em; text-transform: uppercase;
+  color: var(--pale); font-weight: 400; margin-bottom: 2.2rem;
+  display: flex; align-items: center; gap: .7rem;
+}
+.hero-tag::before { content: ''; width: 28px; height: 1px; background: var(--pale); }
+
+.hero-h1 {
+  font-family: 'Cormorant', serif;
+  font-size: clamp(3.2rem, 7vw, 6.8rem);
+  font-weight: 400; line-height: 1.0;
+  color: var(--white); letter-spacing: -.01em;
+  margin-bottom: 2.4rem;
+}
+.hero-h1 em { font-style: italic; color: rgba(255,255,255,.35); }
+
+.hero-row {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 3rem; flex-wrap: wrap;
+}
+.hero-desc {
+  font-size: .88rem; line-height: 1.85;
+  color: rgba(255,255,255,.45); max-width: 400px; font-weight: 300;
+}
+.hero-btns { display: flex; gap: 1rem; flex-shrink: 0; }
+
+.btn-primary {
+  padding: .85rem 2.2rem;
+  background: var(--white); color: var(--forest);
+  font-size: .62rem; letter-spacing: .14em; text-transform: uppercase;
+  font-family: 'Jost', sans-serif; font-weight: 500; border: none; cursor: pointer;
+  transition: background .2s, transform .15s;
+}
+.btn-primary:hover { background: var(--cream); transform: translateY(-1px); }
+
+.btn-secondary {
+  padding: .85rem 2.2rem;
+  background: transparent; color: rgba(255,255,255,.5);
+  font-size: .62rem; letter-spacing: .14em; text-transform: uppercase;
+  font-family: 'Jost', sans-serif; font-weight: 400;
+  border: 1px solid rgba(255,255,255,.18); cursor: pointer;
+  transition: color .2s, border-color .2s;
+}
+.btn-secondary:hover { color: var(--white); border-color: rgba(255,255,255,.4); }
+
+/* stat strip */
+.stat-strip {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  border-top: 1px solid var(--rule);
+}
+.stat {
+  padding: 3.2rem 3.5rem;
+  border-right: 1px solid var(--rule);
+  position: relative; transition: background .25s;
+}
+.stat:last-child { border-right: none; }
+.stat:hover { background: rgba(58,107,80,.04); }
+.stat::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--moss), transparent);
+  transform: scaleX(0); transform-origin: left; transition: transform .35s ease;
+}
+.stat:hover::before { transform: scaleX(1); }
+.stat-val {
+  font-family: 'Cormorant', serif;
+  font-size: 2.8rem; font-weight: 600; color: var(--forest);
+  line-height: 1; display: block; margin-bottom: .45rem;
+}
+.stat-label { font-size: .68rem; color: var(--muted); font-weight: 300; }
+
+/* ═══════════════════════════════
+   HOME — BODY
+═══════════════════════════════ */
+.why-section {
+  padding: 8rem 5vw;
+  display: grid; grid-template-columns: 1fr 1.1fr; gap: 6rem;
+  align-items: start;
+}
+
+/* shared */
+.eyebrow {
+  font-size: .57rem; letter-spacing: .24em; text-transform: uppercase;
+  color: var(--ember); font-weight: 500; margin-bottom: 1rem;
+  display: flex; align-items: center; gap: .55rem;
+}
+.eyebrow::before { content: ''; width: 18px; height: 1.5px; background: var(--ember); }
+.eyebrow.green { color: var(--moss); }
+.eyebrow.green::before { background: var(--moss); }
+
+.section-title {
+  font-family: 'Cormorant', serif;
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  font-weight: 400; line-height: 1.12; color: var(--forest);
+  margin-bottom: 1.4rem; letter-spacing: -.005em;
+}
+.section-title em { font-style: italic; color: var(--moss); }
+.body-text { font-size: .81rem; line-height: 1.92; color: var(--muted); font-weight: 300; }
+
+.points { display: flex; flex-direction: column; gap: 0; }
+.point {
+  display: flex; gap: 1.4rem; padding: 1.8rem 0;
+  border-bottom: 1px solid var(--rule);
+  transition: background .2s;
+}
+.point:first-child { padding-top: 0; }
+.point:last-child { border-bottom: none; padding-bottom: 0; }
+.point-n {
+  font-family: 'Cormorant', serif; font-size: .85rem;
+  color: var(--pale); flex-shrink: 0; padding-top: 2px;
+}
+.point-title { font-size: .82rem; font-weight: 500; margin-bottom: .3rem; color: var(--forest); }
+.point-body { font-size: .74rem; color: var(--muted); line-height: 1.78; font-weight: 300; }
+
+/* process */
+.process-wrap {
+  background: var(--warm);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 7rem 5vw;
+}
+.process-inner { max-width: 1200px; margin: 0 auto; }
+.process-steps {
+  display: grid; grid-template-columns: repeat(5,1fr);
+  margin-top: 3.5rem; gap: 0;
+  position: relative;
+}
+.process-steps::before {
+  content: ''; position: absolute;
+  top: 21px; left: calc(10% + 21px); right: calc(10% + 21px);
+  height: 1px; background: var(--parchment); z-index: 0;
+}
+.ps {
+  text-align: center; padding: 0 1rem; position: relative;
+}
+.ps-dot {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--cream); border: 1.5px solid var(--forest);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.2rem;
+  font-family: 'Cormorant', serif; font-size: .95rem; color: var(--forest);
+  position: relative; z-index: 1;
+  transition: background .2s, color .2s;
+}
+.ps:hover .ps-dot { background: var(--forest); color: var(--white); }
+.ps-title { font-size: .78rem; font-weight: 500; color: var(--forest); margin-bottom: .35rem; }
+.ps-body { font-size: .68rem; color: var(--muted); line-height: 1.72; font-weight: 300; }
+
+/* esg strip */
+.esg-strip {
+  padding: 5rem 5vw;
+  border-bottom: 1px solid var(--rule);
+}
+.esg-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 280px 1fr; gap: 5rem; align-items: center;
+}
+.pill-row { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .8rem; }
+.pill {
+  font-size: .57rem; letter-spacing: .11em; text-transform: uppercase;
+  padding: .3rem .8rem; font-weight: 500;
+}
+.pill-red  { background: rgba(184,92,53,.1); color: var(--ember); }
+.pill-green { background: rgba(90,140,110,.12); color: var(--sage); }
+.pill-sub { font-size: .57rem; letter-spacing: .17em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: .5rem; }
+
+/* home cta */
+.home-cta {
+  padding: 7rem 5vw; text-align: center;
+  background: var(--forest);
+}
+.home-cta .section-title { color: var(--white); }
+.home-cta .section-title em { color: var(--pale); }
+.home-cta .body-text { color: rgba(255,255,255,.42); max-width: 420px; margin: 0 auto 2.8rem; }
+
+/* ═══════════════════════════════
+   PAGE HEADER (shared)
+═══════════════════════════════ */
+.page-header {
+  background: var(--forest);
+  padding: 5.5rem 5vw 4.5rem;
+  position: relative; overflow: hidden;
+}
+.page-header::after {
+  content: ''; position: absolute; right: -6%; top: -20%;
+  width: 42%; padding-bottom: 42%; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.05);
+}
+.ph-tag {
+  font-size: .57rem; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--pale); font-weight: 400; margin-bottom: .9rem;
+  display: flex; align-items: center; gap: .6rem; position: relative; z-index: 1;
+}
+.ph-tag::before { content: ''; width: 22px; height: 1px; background: var(--pale); }
+.page-header h1 {
+  font-family: 'Cormorant', serif;
+  font-size: clamp(2.2rem, 4.5vw, 4.2rem);
+  font-weight: 400; line-height: 1.08;
+  color: var(--white); position: relative; z-index: 1;
+}
+.page-header h1 em { font-style: italic; color: rgba(255,255,255,.38); }
+.page-header .ph-sub {
+  font-size: .75rem; color: rgba(255,255,255,.3); margin-top: .9rem;
+  font-weight: 300; position: relative; z-index: 1;
+}
+
+/* ═══════════════════════════════
+   ABOUT
+═══════════════════════════════ */
+.about-body {
+  padding: 6.5rem 5vw;
+  display: grid; grid-template-columns: 1.1fr 1fr; gap: 6rem;
+  max-width: 1300px; margin: 0 auto;
+}
+
+.tl { display: flex; flex-direction: column; }
+.tl-item { display: flex; gap: 1.3rem; padding-bottom: 2rem; position: relative; }
+.tl-item:not(:last-child)::before {
+  content: ''; position: absolute; left: 8px; top: 20px; bottom: 0;
+  width: 1px; background: var(--rule);
+}
+.tl-dot {
+  width: 16px; height: 16px; border-radius: 50%;
+  border: 1.5px solid var(--forest); background: var(--cream);
+  flex-shrink: 0; margin-top: 3px; position: relative; z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+}
+.tl-dot::after { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--forest); }
+.tl-yr { font-family: 'Cormorant', serif; font-size: .9rem; color: var(--forest); margin-bottom: .2rem; font-weight: 600; }
+.tl-txt { font-size: .72rem; color: var(--muted); line-height: 1.75; font-weight: 300; }
+
+/* team */
+.team-section { padding: 0 5vw 7rem; }
+.team-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(255px,1fr));
+  gap: 1.4rem; margin-top: 2.4rem;
+}
+.tc {
+  background: var(--white);
+  overflow: hidden;
+  transition: transform .3s, box-shadow .3s;
+}
+.tc:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(28,61,46,.1); }
+.tc-top {
+  height: 165px; background: var(--forest);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.tc-top::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 65% 35%, rgba(90,140,110,.28), transparent 68%);
+}
+.tc-init {
+  font-family: 'Cormorant', serif;
+  font-size: 3rem; color: rgba(255,255,255,.1);
+  position: relative; z-index: 1;
+}
+.tc-body { padding: 1.4rem; }
+.tc-name { font-family: 'Cormorant', serif; font-size: 1.1rem; color: var(--forest); font-weight: 600; }
+.tc-role {
+  font-size: .55rem; letter-spacing: .13em; text-transform: uppercase;
+  color: var(--ember); margin-top: .15rem; margin-bottom: .65rem; font-weight: 500;
+}
+.tc-desc { font-size: .71rem; color: var(--muted); line-height: 1.75; font-weight: 300; }
+
+/* values */
+.vals {
+  background: var(--warm);
+  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  padding: 5rem 5vw;
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 0;
+}
+.val {
+  padding: 2.4rem 2rem; border-right: 1px solid var(--rule); text-align: center;
+}
+.val:last-child { border-right: none; }
+.val-ico { font-size: 1.4rem; margin-bottom: .6rem; }
+.val-name { font-family: 'Cormorant', serif; font-size: 1rem; font-weight: 600; color: var(--forest); margin-bottom: .4rem; }
+.val-desc { font-size: .7rem; color: var(--muted); line-height: 1.75; font-weight: 300; }
+
+/* ═══════════════════════════════
+   MANDATE
+═══════════════════════════════ */
+.mandate-grid {
+  padding: 5.5rem 5vw;
+  display: grid; grid-template-columns: repeat(3,1fr);
+  border-bottom: 1px solid var(--rule);
+}
+.mb {
+  padding: 3.5rem 3rem;
+  border-right: 1px solid var(--rule);
+}
+.mb:last-child { border-right: none; }
+.mb-lbl {
+  font-size: .54rem; letter-spacing: .19em; text-transform: uppercase;
+  color: var(--muted); font-weight: 500; margin-bottom: 1.2rem;
+}
+.mb-title {
+  font-family: 'Cormorant', serif;
+  font-size: 1.15rem; font-weight: 600; color: var(--forest); margin-bottom: 1.2rem;
+}
+.mb-list { list-style: none; }
+.mb-list li {
+  font-size: .72rem; color: var(--muted); padding: .45rem 0;
+  border-bottom: 1px solid var(--rule);
+  display: flex; align-items: flex-start; gap: .6rem;
+  line-height: 1.6; font-weight: 300;
+}
+.mb-list li:last-child { border-bottom: none; }
+.dot { width: 4px; height: 4px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+.dot-g { background: var(--moss); }
+.dot-r { background: var(--ember); }
+
+.alloc { display: flex; flex-direction: column; gap: 0; }
+.alloc-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: .65rem 0; border-bottom: 1px solid var(--rule);
+}
+.alloc-row:last-child { border-bottom: none; }
+.alloc-name { font-size: .72rem; color: var(--muted); font-weight: 300; }
+.alloc-val { font-family: 'Cormorant', serif; font-size: 1.05rem; color: var(--forest); font-weight: 600; }
+
+.mandate-lower {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--rule);
+}
+.ml {
+  padding: 4rem 3.5rem;
+  border-right: 1px solid var(--rule);
+}
+.ml:last-child { border-right: none; }
+.risk-table { width: 100%; border-collapse: collapse; margin-top: .8rem; }
+.risk-table th {
+  font-size: .56rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); font-weight: 500; padding: .6rem 0; text-align: left;
+  border-bottom: 1.5px solid var(--rule);
+}
+.risk-table td {
+  font-size: .72rem; padding: .65rem 0; border-bottom: 1px solid var(--rule);
+  font-weight: 300; color: var(--muted);
+}
+.risk-table td:first-child { color: var(--ink); font-weight: 400; }
+.risk-table tr:last-child td { border-bottom: none; }
+.bench-pills { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+.bench-pill {
+  font-size: .58rem; letter-spacing: .1em; text-transform: uppercase;
+  padding: .32rem .8rem;
+  border: 1px solid rgba(90,140,110,.3); color: var(--sage); font-weight: 500;
+}
+
+/* ═══════════════════════════════
+   PROGRAMME
+═══════════════════════════════ */
+.prog-intro {
+  padding: 6rem 5vw;
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: 6rem;
+  max-width: 1300px; margin: 0 auto; align-items: start;
+}
+.info-cards { display: flex; flex-direction: column; gap: .9rem; }
+.ic {
+  background: var(--white); padding: 1.3rem 1.5rem;
+  border-left: 2.5px solid var(--ember);
+}
+.ic.sage { border-left-color: var(--sage); }
+.ic.forest { border-left-color: var(--forest); }
+.ic-lbl { font-size: .54rem; letter-spacing: .17em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: .3rem; }
+.ic-val { font-size: .77rem; color: var(--ink); font-weight: 300; line-height: 1.55; }
+
+.roles-section { padding: 0 5vw 5.5rem; }
+.roles-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+  gap: 1.3rem; margin-top: 2.4rem;
+}
+.role-card {
+  border: 1px solid var(--rule); padding: 2rem;
+  background: var(--white);
+  transition: border-color .2s, box-shadow .2s;
+}
+.role-card:hover { border-color: var(--sage); box-shadow: 0 8px 24px rgba(28,61,46,.07); }
+.role-n { font-family: 'Cormorant', serif; font-size: 2rem; color: var(--parchment); margin-bottom: .6rem; }
+.role-title { font-family: 'Cormorant', serif; font-size: 1.1rem; font-weight: 600; color: var(--forest); margin-bottom: .55rem; }
+.role-body { font-size: .72rem; color: var(--muted); line-height: 1.8; font-weight: 300; }
+.role-tags { margin-top: .9rem; display: flex; flex-wrap: wrap; gap: .38rem; }
+.rtag {
+  font-size: .52rem; letter-spacing: .11em; text-transform: uppercase;
+  padding: .25rem .6rem; background: var(--warm); color: var(--sage); font-weight: 500;
+}
+
+.impact-band {
+  background: var(--forest); padding: 6.5rem 5vw;
+  border-top: 1px solid rgba(255,255,255,.07);
+}
+.impact-cards {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 1.3rem; margin-top: 3rem;
+}
+.imc {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.07);
+  padding: 2.2rem;
+}
+.imc-ico { font-size: 1.6rem; margin-bottom: .5rem; }
+.imc-lbl {
+  font-size: .55rem; letter-spacing: .17em; text-transform: uppercase;
+  color: var(--pale); font-weight: 500; margin-bottom: .6rem; display: block;
+}
+.imc-desc { font-size: .7rem; color: rgba(255,255,255,.32); line-height: 1.75; font-weight: 300; }
+
+/* apply */
+.apply-wrap { padding: 7rem 5vw; background: var(--warm); border-top: 1px solid var(--rule); }
+.apply-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+  max-width: 1100px; margin: 0 auto; align-items: start;
+}
+.req-list { list-style: none; margin-top: 1.5rem; }
+.req-list li {
+  display: flex; align-items: flex-start; gap: .7rem;
+  padding: .75rem 0; border-bottom: 1px solid var(--rule);
+  font-size: .75rem; color: var(--muted); line-height: 1.5; font-weight: 300;
+}
+.req-list li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--ember); flex-shrink: 0; margin-top: 6px; }
+.apply-card { background: var(--white); padding: 2.2rem; border: 1px solid var(--rule); }
+.apply-card h3 { font-family: 'Cormorant', serif; font-size: 1.4rem; font-weight: 600; color: var(--forest); margin-bottom: 1.6rem; }
+
+/* forms */
+.fg { margin-bottom: 1.1rem; }
+.fl { display: block; font-size: .54rem; letter-spacing: .17em; text-transform: uppercase; color: var(--sage); margin-bottom: .38rem; font-weight: 500; }
+.fi, .fsl, .fta {
+  width: 100%; padding: .72rem .85rem;
+  border: 1px solid var(--rule); background: var(--cream);
+  font-family: 'Jost', sans-serif; font-size: .77rem;
+  color: var(--ink); font-weight: 300; outline: none;
+  transition: border-color .2s, background .2s;
+  -webkit-appearance: none; border-radius: 0;
+}
+.fi::placeholder, .fta::placeholder { color: var(--parchment); }
+.fi:focus, .fsl:focus, .fta:focus { border-color: var(--sage); background: var(--white); }
+.fsl option { background: #fff; }
+.fta { resize: vertical; min-height: 88px; }
+.frow { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+.btn-submit {
+  width: 100%; padding: .88rem;
+  background: var(--forest); color: var(--white);
+  font-family: 'Jost', sans-serif; font-size: .62rem;
+  letter-spacing: .17em; text-transform: uppercase; font-weight: 500;
+  border: none; cursor: pointer; margin-top: .4rem;
+  transition: background .2s;
+}
+.btn-submit:hover { background: var(--sage); }
+.btn-submit.ember { background: var(--ember); }
+.btn-submit.ember:hover { background: #c96b42; }
+.form-ok { display: none; text-align: center; padding: 1.5rem 0; }
+.form-ok p { font-family: 'Cormorant', serif; font-size: 1.2rem; color: var(--forest); }
+.form-ok small { font-size: .7rem; color: var(--muted); margin-top: .4rem; display: block; font-weight: 300; }
+
+/* ═══════════════════════════════
+   CONTACT
+═══════════════════════════════ */
+#contact { padding-top: 0; }
+.contact-layout {
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - 0px);
+  padding-top: 66px;
+}
+.cl {
+  background: var(--forest);
+  padding: 6rem 5vw; display: flex; flex-direction: column; justify-content: center;
+}
+.cr {
+  padding: 6rem 4.5rem;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.cr h3 { font-family: 'Cormorant', serif; font-size: 1.5rem; font-weight: 600; color: var(--forest); margin-bottom: 1.8rem; }
+.cd { margin-bottom: 2.2rem; }
+.cd-lbl { font-size: .52rem; letter-spacing: .2em; text-transform: uppercase; color: var(--pale); font-weight: 500; margin-bottom: .28rem; }
+.cd-val { font-size: .8rem; color: rgba(255,255,255,.55); font-weight: 300; line-height: 1.6; }
+.cd-val a { color: var(--pale); text-decoration: none; }
+.cd-val a:hover { text-decoration: underline; }
+
+/* ═══════════════════════════════
+   FOOTER
+═══════════════════════════════ */
+footer {
+  background: var(--forest); padding: 2.8rem 5vw;
+  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,.07);
+}
+.f-brand { font-family: 'Cormorant', serif; font-size: .95rem; color: rgba(255,255,255,.4); font-weight: 400; }
+.f-brand strong { color: rgba(255,255,255,.75); font-weight: 600; }
+.f-copy { font-size: .54rem; color: rgba(255,255,255,.18); letter-spacing: .07em; text-align: center; line-height: 1.65; }
+.f-nav { display: flex; gap: 1.8rem; }
+.f-nav a { font-size: .57rem; letter-spacing: .13em; text-transform: uppercase; color: rgba(255,255,255,.22); text-decoration: none; cursor: pointer; transition: color .2s; }
+.f-nav a:hover { color: rgba(255,255,255,.6); }
+
+/* ═══════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════ */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+/* ═══════════════════════════════
+   ANIMATIONS
+═══════════════════════════════ */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+
+/* ═══════════════════════════════
+   RESPONSIVE
+═══════════════════════════════ */
+@media(max-width: 960px) {
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .burger { display: flex; }
+  .nav-links.open {
+    display: flex; flex-direction: column;
+    position: fixed; top: 66px; left: 0; right: 0;
+    background: rgba(245,241,234,.97);
+    backdrop-filter: blur(16px);
+    padding: 2rem 5vw; gap: 1.5rem;
+    border-bottom: 1px solid var(--rule); z-index: 199;
+  }
+  .hero-row { flex-direction: column; align-items: flex-start; }
+  .stat-strip { grid-template-columns: 1fr; }
+  .stat { border-right: none; border-bottom: 1px solid var(--rule); }
+  .stat:last-child { border-bottom: none; }
+  .why-section { grid-template-columns: 1fr; gap: 3rem; }
+  .process-steps { grid-template-columns: 1fr 1fr 1fr; }
+  .process-steps::before { display: none; }
+  .esg-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .mandate-grid { grid-template-columns: 1fr; }
+  .mb { border-right: none; border-bottom: 1px solid var(--rule); }
+  .mb:last-child { border-bottom: none; }
+  .mandate-lower { grid-template-columns: 1fr; }
+  .ml { border-right: none; border-bottom: 1px solid var(--rule); }
+  .ml:last-child { border-bottom: none; }
+  .about-body { grid-template-columns: 1fr; gap: 3rem; }
+  .team-grid { grid-template-columns: 1fr 1fr; }
+  .vals { grid-template-columns: 1fr 1fr; }
+  .val:nth-child(2) { border-right: none; }
+  .val:nth-child(1), .val:nth-child(2) { border-bottom: 1px solid var(--rule); }
+  .prog-intro { grid-template-columns: 1fr; gap: 2.5rem; }
+  .impact-cards { grid-template-columns: 1fr; }
+  .apply-inner { grid-template-columns: 1fr; }
+  .contact-layout { grid-template-columns: 1fr; }
+  .cl { padding-bottom: 4rem; }
+  .cr { padding: 4rem 5vw; }
+  footer { flex-direction: column; text-align: center; }
+}
+@media(max-width: 600px) {
+  .vals { grid-template-columns: 1fr; }
+  .val { border-right: none; border-bottom: 1px solid var(--rule); }
+  .team-grid { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: 1fr 1fr; }
+  .roles-grid { grid-template-columns: 1fr; }
+  .frow { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="nav">
+  <div class="nav-logo" onclick="showPage('home')">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M12 3C12 3 5.5 8 5.5 14C5.5 17.59 8.41 20.5 12 20.5C15.59 20.5 18.5 17.59 18.5 14C18.5 8 12 3 12 3Z" stroke="#9bbfaa" stroke-width="1.5" fill="none"/>
+        <path d="M12 9L12 18M9.5 13C10.8 11.5 13.2 13.5 14.5 12" stroke="#9bbfaa" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="logo-wordmark">Prune Hill Capital<small>RHUL Student Investment Fund</small></div>
+  </div>
+
+  <ul class="nav-links" id="nav-links">
+    <li><a onclick="showPage('home')" data-page="home">Home</a></li>
+    <li><a onclick="showPage('about')" data-page="about">About</a></li>
+    <li><a onclick="showPage('mandate')" data-page="mandate">Mandate</a></li>
+    <li><a onclick="showPage('programme')" data-page="programme">Programme</a></li>
+    <li><a onclick="showPage('contact')" data-page="contact">Contact</a></li>
+  </ul>
+
+  <button class="nav-cta" onclick="showPage('programme')">Apply Now</button>
+  <button class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ══════════════════════════════════════
+     HOME
+══════════════════════════════════════ -->
+<div class="page active" id="home">
+
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-tag">Royal Holloway, University of London — Business School · 2026–27</p>
+      <h1 class="hero-h1">
+        Learn investing<br>by <em>doing</em> it.
+      </h1>
+      <div class="hero-row">
+        <p class="hero-desc">Prune Hill Capital is a student-led, non-profit investment fund at RHUL. We manage a live ESG portfolio under a formal mandate — building the experience that finance careers actually demand.</p>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="showPage('programme')">Apply to Join</button>
+          <button class="btn-secondary" onclick="showPage('mandate')">Read the Mandate</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stat-strip reveal">
+    <div class="stat">
+      <span class="stat-val">Live</span>
+      <span class="stat-label">Portfolio — real capital, real decisions, real consequences</span>
+    </div>
+    <div class="stat">
+      <span class="stat-val">ESG</span>
+      <span class="stat-label">Mandate — strict exclusions, responsible by design</span>
+    </div>
+    <div class="stat">
+      <span class="stat-val">RHUL</span>
+      <span class="stat-label">First student investment fund at Royal Holloway</span>
+    </div>
+  </div>
+
+  <section class="why-section reveal">
+    <div>
+      <p class="eyebrow">Why we exist</p>
+      <h2 class="section-title">Theory only gets<br>you <em>so far.</em></h2>
+      <p class="body-text" style="margin-bottom:1.3rem;">Finance graduates understand frameworks. What they often can't do is build a portfolio, model a company, or manage risk under real conditions. Employers consistently flag this gap.</p>
+      <p class="body-text">Prune Hill Capital exists to close it. No equivalent fund exists at Royal Holloway. We're building the track record and culture now — with a long-term goal of directing returns to RHUL student hardship support.</p>
+    </div>
+    <div class="points">
+      <div class="point">
+        <span class="point-n">01</span>
+        <div>
+          <div class="point-title">Hands-on experience</div>
+          <p class="point-body">Members research, pitch, vote, and execute — not just observe. Every step mirrors professional practice, building real judgement.</p>
+        </div>
+      </div>
+      <div class="point">
+        <span class="point-n">02</span>
+        <div>
+          <div class="point-title">Professional rigour</div>
+          <p class="point-body">Formal mandate, defined risk limits, bi-weekly meetings, quarterly reviews, written memos, full documentation. Standards aren't lowered because we're students.</p>
+        </div>
+      </div>
+      <div class="point">
+        <span class="point-n">03</span>
+        <div>
+          <div class="point-title">Social impact</div>
+          <p class="point-body">Non-profit from day one. Once at sufficient scale, up to 30% of realised profits go to RHUL student hardship and bursary funds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="process-wrap reveal">
+    <div class="process-inner">
+      <p class="eyebrow">How we invest</p>
+      <h2 class="section-title" style="margin-bottom:0;">From idea to <em>execution.</em></h2>
+      <div class="process-steps">
+        <div class="ps"><div class="ps-dot">1</div><div class="ps-title">Research</div><p class="ps-body">Sector PMs screen for ideas. ESG filters applied from the start.</p></div>
+        <div class="ps"><div class="ps-dot">2</div><div class="ps-title">Memo</div><p class="ps-body">Written analysis: thesis, valuation, ESG screen, risks, expected return.</p></div>
+        <div class="ps"><div class="ps-dot">3</div><div class="ps-title">Pitch</div><p class="ps-body">Formal presentation to the Investment Committee. Questions, challenge, debate.</p></div>
+        <div class="ps"><div class="ps-dot">4</div><div class="ps-title">Vote</div><p class="ps-body">Committee votes collectively. Academic Adviser reviews. Risk Officer confirms compliance.</p></div>
+        <div class="ps"><div class="ps-dot">5</div><div class="ps-title">Execute</div><p class="ps-body">Trade placed via brokerage. Logged in trade blotter and meeting minutes.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="esg-strip reveal">
+    <div class="esg-inner">
+      <div>
+        <p class="eyebrow green">ESG Mandate</p>
+        <h2 class="section-title" style="font-size:1.7rem;">Responsible<br><em>by design.</em></h2>
+        <p class="body-text" style="font-size:.75rem;">Strict exclusions, sustainability-themed ETF preferences, and ESG-focused benchmarks throughout.</p>
+      </div>
+      <div>
+        <p class="pill-sub">We never invest in:</p>
+        <div class="pill-row" style="margin-bottom:1.5rem;">
+          <span class="pill pill-red">Fossil Fuels</span>
+          <span class="pill pill-red">Armaments</span>
+          <span class="pill pill-red">Tobacco</span>
+          <span class="pill pill-red">Gambling</span>
+          <span class="pill pill-red">Adult Entertainment</span>
+          <span class="pill pill-red">Derivatives / Leverage</span>
+          <span class="pill pill-red">Crypto</span>
+        </div>
+        <p class="pill-sub">Benchmarks:</p>
+        <div class="pill-row">
+          <span class="pill pill-green">ESGU</span>
+          <span class="pill pill-green">ESGD</span>
+          <span class="pill pill-green">ESGV</span>
+          <span class="pill pill-green">ICLN</span>
+          <span class="pill pill-green">VSGX</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-cta reveal">
+    <p class="eyebrow" style="color:var(--pale);justify-content:center;">Recruiting 2026–27</p>
+    <h2 class="section-title" style="text-align:center;max-width:500px;margin:0 auto 1.3rem;color:var(--white);">Ready to learn by <em>doing?</em></h2>
+    <p class="body-text" style="text-align:center;max-width:420px;margin:0 auto 2.5rem;color:rgba(255,255,255,.4);">Open to all RHUL students. No finance background required — curiosity and commitment are what matter.</p>
+    <div style="text-align:center;"><button class="btn-primary" onclick="showPage('programme')">View Programme & Apply</button></div>
+  </div>
+
+  <footer>
+    <div class="f-brand"><strong>Prune Hill Capital</strong> — RHUL Business School</div>
+    <div class="f-copy">Student-led · Non-profit · Royal Holloway, University of London<br>Not a registered investment adviser. For educational purposes only.</div>
+    <div class="f-nav">
+      <a onclick="showPage('about')">About</a>
+      <a onclick="showPage('mandate')">Mandate</a>
+      <a onclick="showPage('programme')">Programme</a>
+      <a onclick="showPage('contact')">Contact</a>
+    </div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     ABOUT
+══════════════════════════════════════ -->
+<div class="page" id="about">
+
+  <div class="page-header">
+    <p class="ph-tag">Our Story</p>
+    <h1>Built at RHUL.<br><em>Built to last.</em></h1>
+    <p class="ph-sub">Royal Holloway, University of London — Business School · 2026–27</p>
+  </div>
+
+  <div class="about-body reveal">
+    <div>
+      <p class="eyebrow">Who we are</p>
+      <h2 class="section-title">A fund built by students, <em>for students.</em></h2>
+      <p class="body-text" style="margin-bottom:1.2rem;">Prune Hill Capital was founded by Hugo Christie at RHUL's Business School to give students the practical investing experience that genuinely differentiates them — and to build something that outlasts any single cohort.</p>
+      <p class="body-text" style="margin-bottom:1.2rem;">The fund operates under a formal Investment Mandate (v1.1), overseen by an Academic Adviser and Advisory Board. A succession policy governs leadership transitions, ensuring continuity regardless of graduations or departures.</p>
+      <p class="body-text">As a non-profit, no student or staff member receives personal financial benefit. All gains remain within RHUL — with a defined pathway to student hardship support as the fund grows.</p>
+    </div>
+    <div>
+      <p class="eyebrow">Timeline</p>
+      <div class="tl">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div><div class="tl-yr">Founded</div><p class="tl-txt">Prune Hill Capital is established at RHUL. The investment mandate, governance structure, and succession policy are formalised from day one.</p></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div><div class="tl-yr">First Cohort</div><p class="tl-txt">The founding leadership team is assembled. The first investment research cycle begins — from sector screening and memo writing to full Investment Committee pitches.</p></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div><div class="tl-yr">Growing</div><p class="tl-txt">The fund expands its analyst base, strengthens RHUL Business School ties, and begins building partnerships with peer student funds at other UK universities.</p></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div><div class="tl-yr">Today</div><p class="tl-txt">Building a track record and the institutional foundations needed to eventually manage real capital transparently — and direct returns to RHUL student hardship support.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="team-section reveal">
+    <p class="eyebrow">The Team</p>
+    <h2 class="section-title">The people <em>running</em> the fund.</h2>
+    <div class="team-grid">
+      <div class="tc">
+        <div class="tc-top"><div class="tc-init">HC</div></div>
+        <div class="tc-body">
+          <div class="tc-name">Hugo Christie</div>
+          <div class="tc-role">Founder · Managing Partner / CIO</div>
+          <p class="tc-desc">Leads the investment process, chairs the Investment Committee, and is the primary contact for the Academic Adviser and Advisory Board. Responsible for portfolio construction and overall mandate compliance.</p>
+        </div>
+      </div>
+      <div class="tc">
+        <div class="tc-top"><div class="tc-init">R&amp;C</div></div>
+        <div class="tc-body">
+          <div class="tc-name">Risk &amp; Compliance Officer</div>
+          <div class="tc-role">Investment Committee · Risk Management</div>
+          <p class="tc-desc">Checks every proposed trade against the mandate before execution. Maintains the risk register, documents all committee decisions, and flags any breaches to the CIO and Academic Adviser.</p>
+        </div>
+      </div>
+      <div class="tc">
+        <div class="tc-top"><div class="tc-init">O&amp;R</div></div>
+        <div class="tc-body">
+          <div class="tc-name">Operations &amp; Reporting Officer</div>
+          <div class="tc-role">Fund Operations · Performance Reporting</div>
+          <p class="tc-desc">Prepares monthly factsheets, quarterly review packs, and the annual report. Manages all fund documentation, version control, and the formal reporting calendar.</p>
+        </div>
+      </div>
+      <div class="tc">
+        <div class="tc-top"><div class="tc-init">SR</div></div>
+        <div class="tc-body">
+          <div class="tc-name">Stakeholder Relations Officer</div>
+          <div class="tc-role">External Relations · Partnerships</div>
+          <p class="tc-desc">Manages Prune Hill's external profile and relationships with partner student funds at other UK universities — joint research, investment competitions, and governance sharing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="vals reveal">
+    <div class="val"><div class="val-ico">🌱</div><div class="val-name">Growth Mindset</div><p class="val-desc">Intellectual honesty over being right. Every mistake is a learning opportunity.</p></div>
+    <div class="val"><div class="val-ico">⚖️</div><div class="val-name">Rigour</div><p class="val-desc">Professional standards — not approximations. Thorough analysis, documented decisions.</p></div>
+    <div class="val"><div class="val-ico">🤝</div><div class="val-name">Inclusion</div><p class="val-desc">Open to all subjects and backgrounds. Diverse perspectives make better investors.</p></div>
+    <div class="val"><div class="val-ico">🏛️</div><div class="val-name">Longevity</div><p class="val-desc">We build for the fund, not ourselves. Each cohort leaves it stronger.</p></div>
+  </div>
+
+  <footer>
+    <div class="f-brand"><strong>Prune Hill Capital</strong> — RHUL Business School</div>
+    <div class="f-copy">Student-led · Non-profit · Royal Holloway, University of London</div>
+    <div class="f-nav">
+      <a onclick="showPage('home')">Home</a>
+      <a onclick="showPage('mandate')">Mandate</a>
+      <a onclick="showPage('programme')">Programme</a>
+      <a onclick="showPage('contact')">Contact</a>
+    </div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     MANDATE
+══════════════════════════════════════ -->
+<div class="page" id="mandate">
+
+  <div class="page-header">
+    <p class="ph-tag">Investment Mandate v1.1 · 2026–2027</p>
+    <h1>What we invest in.<br><em>What we never will.</em></h1>
+    <p class="ph-sub">Approved by Academic Adviser · Royal Holloway, University of London</p>
+  </div>
+
+  <div class="mandate-grid reveal">
+    <div class="mb">
+      <div class="mb-lbl">Permitted instruments</div>
+      <div class="mb-title">We invest in</div>
+      <ul class="mb-list">
+        <li><span class="dot dot-g"></span>Listed equities on regulated developed-market exchanges</li>
+        <li><span class="dot dot-g"></span>ESG-screened ETFs and index funds</li>
+        <li><span class="dot dot-g"></span>Cash and cash equivalents at the broker</li>
+      </ul>
+    </div>
+    <div class="mb">
+      <div class="mb-lbl">Prohibited instruments &amp; sectors</div>
+      <div class="mb-title">We never invest in</div>
+      <ul class="mb-list">
+        <li><span class="dot dot-r"></span>Derivatives, leverage, or margin — under any circumstances</li>
+        <li><span class="dot dot-r"></span>Cryptoassets or unregulated digital tokens</li>
+        <li><span class="dot dot-r"></span>Fossil fuels (exploration, production, refining, transport)</li>
+        <li><span class="dot dot-r"></span>Armaments, tobacco, gambling, adult entertainment</li>
+        <li><span class="dot dot-r"></span>Unlisted or private securities</li>
+      </ul>
+    </div>
+    <div class="mb">
+      <div class="mb-lbl">Portfolio structure</div>
+      <div class="mb-title">Allocation targets</div>
+      <div class="alloc">
+        <div class="alloc-row"><span class="alloc-name">Equities</span><span class="alloc-val">60–80%</span></div>
+        <div class="alloc-row"><span class="alloc-name">ESG ETFs</span><span class="alloc-val">15–30%</span></div>
+        <div class="alloc-row"><span class="alloc-name">Cash</span><span class="alloc-val">5–15%</span></div>
+      </div>
+      <div style="height:1.4rem;"></div>
+      <div class="mb-lbl" style="margin-bottom:.7rem;">Geographic split</div>
+      <div class="alloc">
+        <div class="alloc-row"><span class="alloc-name">United States</span><span class="alloc-val">30–50%</span></div>
+        <div class="alloc-row"><span class="alloc-name">United Kingdom</span><span class="alloc-val">20–40%</span></div>
+        <div class="alloc-row"><span class="alloc-name">Intl Developed</span><span class="alloc-val">10–30%</span></div>
+        <div class="alloc-row"><span class="alloc-name">Emerging Markets</span><span class="alloc-val">0–10%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mandate-lower reveal">
+    <div class="ml">
+      <div class="mb-lbl">Risk limits &amp; drawdown triggers</div>
+      <div class="mb-title" style="font-family:'Cormorant',serif;font-size:1.15rem;font-weight:600;color:var(--forest);margin-bottom:1.2rem;">How we manage risk</div>
+      <table class="risk-table">
+        <thead><tr><th>Limit</th><th>Threshold</th><th>Consequence</th></tr></thead>
+        <tbody>
+          <tr><td>Single position</td><td>Max 10%</td><td>Hard limit</td></tr>
+          <tr><td>Single sector</td><td>Max 40%</td><td>Hard limit</td></tr>
+          <tr><td>Drawdown (6 months)</td><td style="color:var(--ember);">–15%</td><td>Formal review triggered</td></tr>
+          <tr><td>Drawdown (12 months)</td><td style="color:var(--ember);">–20%</td><td>Formal review triggered</td></tr>
+          <tr><td>Leverage</td><td style="color:var(--ember);">None</td><td>Prohibited always</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="ml">
+      <div class="mb-lbl">Benchmarks &amp; reporting</div>
+      <div class="mb-title" style="font-family:'Cormorant',serif;font-size:1.15rem;font-weight:600;color:var(--forest);margin-bottom:.8rem;">How we measure performance</div>
+      <p class="body-text" style="font-size:.73rem;margin-bottom:1rem;">Performance is evaluated against ESG-focused indices. The primary benchmark may be adjusted annually, subject to Academic Adviser approval.</p>
+      <div class="bench-pills">
+        <span class="bench-pill">ESGU</span>
+        <span class="bench-pill">ESGD</span>
+        <span class="bench-pill">ESGV</span>
+        <span class="bench-pill">ICLN</span>
+        <span class="bench-pill">VSGX</span>
+      </div>
+      <div style="margin-top:2rem;">
+        <div class="mb-lbl" style="margin-bottom:.7rem;">Reporting schedule</div>
+        <table class="risk-table">
+          <thead><tr><th>Frequency</th><th>Output</th></tr></thead>
+          <tbody>
+            <tr><td>Monthly</td><td>Factsheet — performance, holdings, commentary</td></tr>
+            <tr><td>Quarterly</td><td>Portfolio review — rebalancing &amp; risk report</td></tr>
+            <tr><td>Annual</td><td>Full report — mandate review, Advisory Board, hardship contribution</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="f-brand"><strong>Prune Hill Capital</strong> — RHUL Business School</div>
+    <div class="f-copy">Investment Mandate v1.1 · 2026–2027 · Approved by Academic Adviser</div>
+    <div class="f-nav">
+      <a onclick="showPage('home')">Home</a>
+      <a onclick="showPage('about')">About</a>
+      <a onclick="showPage('programme')">Programme</a>
+      <a onclick="showPage('contact')">Contact</a>
+    </div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     PROGRAMME
+══════════════════════════════════════ -->
+<div class="page" id="programme">
+
+  <div class="page-header">
+    <p class="ph-tag">Open to all RHUL students · No finance background required</p>
+    <h1>Join the fund.<br><em>Learn by doing.</em></h1>
+  </div>
+
+  <div class="prog-intro reveal">
+    <div>
+      <p class="eyebrow">What to expect</p>
+      <h2 class="section-title">Demanding.<br><em>Worth it.</em></h2>
+      <p class="body-text" style="margin-bottom:1.3rem;">Membership means roughly 6–8 hours a week during term — bi-weekly research meetings on campus, plus independent reading, modelling, and memo writing.</p>
+      <p class="body-text" style="margin-bottom:1.3rem;">Selection is two interviews: a get-to-know conversation, then five practical questions. We're looking for curiosity and commitment, not a finance CV.</p>
+      <p class="body-text">Roles run for the academic year, reviewed at the end of Autumn Term. Re-appointment is possible. Third-year students are eligible for all roles, including CIO.</p>
+    </div>
+    <div class="info-cards">
+      <div class="ic"><div class="ic-lbl">Time commitment</div><div class="ic-val">~6–8 hours per week during term. Bi-weekly meetings on RHUL campus, plus independent research.</div></div>
+      <div class="ic sage"><div class="ic-lbl">Who can apply</div><div class="ic-val">All enrolled RHUL students. Any year, any degree subject. Finance and non-finance students equally welcome.</div></div>
+      <div class="ic forest"><div class="ic-lbl">Selection process</div><div class="ic-val">Expression of Interest → 1st interview (get-to-know) → 2nd interview (5 practical questions).</div></div>
+    </div>
+  </div>
+
+  <div class="roles-section reveal">
+    <p class="eyebrow">Open roles</p>
+    <h2 class="section-title">Find your <em>place</em> in the team.</h2>
+    <div class="roles-grid">
+      <div class="role-card">
+        <div class="role-n">01</div>
+        <div class="role-title">Equity Analyst / Portfolio Manager</div>
+        <p class="role-body">Cover a sector, screen ideas, build models, write investment memos, and pitch to the committee. The core role — and where the most learning happens.</p>
+        <div class="role-tags"><span class="rtag">Equity Research</span><span class="rtag">Modelling</span><span class="rtag">Pitching</span></div>
+      </div>
+      <div class="role-card">
+        <div class="role-n">02</div>
+        <div class="role-title">Risk &amp; Compliance Officer</div>
+        <p class="role-body">Check every trade against the mandate before execution. Maintain the risk register and document all Investment Committee decisions.</p>
+        <div class="role-tags"><span class="rtag">Risk Management</span><span class="rtag">Compliance</span><span class="rtag">Documentation</span></div>
+      </div>
+      <div class="role-card">
+        <div class="role-n">03</div>
+        <div class="role-title">Operations &amp; Reporting Officer</div>
+        <p class="role-body">Run the fund's reporting calendar. Prepare monthly factsheets, quarterly reviews, and the annual report.</p>
+        <div class="role-tags"><span class="rtag">Reporting</span><span class="rtag">Operations</span><span class="rtag">Communications</span></div>
+      </div>
+      <div class="role-card">
+        <div class="role-n">04</div>
+        <div class="role-title">Stakeholder Relations Officer</div>
+        <p class="role-body">Manage Prune Hill's external presence and partnerships with other UK university student funds — joint research, competitions, governance sharing.</p>
+        <div class="role-tags"><span class="rtag">Partnerships</span><span class="rtag">External Relations</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="impact-band reveal">
+    <p class="eyebrow green" style="color:var(--pale);">Beyond careers</p>
+    <h2 class="section-title" style="color:var(--white);margin-bottom:0;">Capital deployed for <em>good.</em></h2>
+    <div class="impact-cards">
+      <div class="imc"><div class="imc-ico">📚</div><span class="imc-lbl">Hardship &amp; Bursary Support</span><p class="imc-desc">Once at sufficient scale, up to 30% of realised net profits may be directed annually to an approved RHUL hardship or bursary fund — subject to Academic Adviser approval.</p></div>
+      <div class="imc"><div class="imc-ico">🏛️</div><span class="imc-lbl">Institutional Legacy</span><p class="imc-desc">Formal succession policy, documented processes, and a growing track record mean Prune Hill outlasts any cohort and gets stronger every year.</p></div>
+      <div class="imc"><div class="imc-ico">🤝</div><span class="imc-lbl">UK University Fund Network</span><p class="imc-desc">Building partnerships with peer student funds across UK universities — joint research, shared governance frameworks, and investment competitions.</p></div>
+    </div>
+  </div>
+
+  <div class="apply-wrap reveal">
+    <p class="eyebrow" style="justify-content:center;">Applications open</p>
+    <h2 class="section-title" style="text-align:center;max-width:500px;margin:0 auto 2.5rem;">Apply to <em>join</em> Prune Hill Capital.</h2>
+    <div class="apply-inner">
+      <div>
+        <p class="body-text" style="margin-bottom:1.3rem;">We look for a small number of motivated candidates each intake. Here's what matters:</p>
+        <ul class="req-list">
+          <li>Currently enrolled at Royal Holloway, University of London</li>
+          <li>Genuine intellectual curiosity about markets, businesses, and economics</li>
+          <li>Ability to think critically and form independent views</li>
+          <li>Commitment to ~6–8 hours per week during term</li>
+          <li>Willingness to challenge and be challenged constructively</li>
+          <li>No prior finance knowledge required — any degree subject welcome</li>
+        </ul>
+      </div>
+      <div class="apply-card">
+        <h3>Expression of Interest</h3>
+        <div id="apply-form">
+          <div class="frow">
+            <div class="fg"><label class="fl">First name</label><input type="text" class="fi" placeholder="Your first name"></div>
+            <div class="fg"><label class="fl">Last name</label><input type="text" class="fi" placeholder="Your last name"></div>
+          </div>
+          <div class="fg"><label class="fl">RHUL email</label><input type="email" class="fi" placeholder="you@rhul.ac.uk"></div>
+          <div class="frow">
+            <div class="fg"><label class="fl">Degree subject</label><input type="text" class="fi" placeholder="e.g. Economics"></div>
+            <div class="fg"><label class="fl">Year of study</label>
+              <select class="fsl fi"><option value="" disabled selected>Select</option><option>Year 1</option><option>Year 2</option><option>Year 3</option><option>Year 4 / Masters</option><option>PhD</option></select>
+            </div>
+          </div>
+          <div class="fg"><label class="fl">Role interest</label>
+            <select class="fsl fi"><option value="" disabled selected>Select a role</option><option>Equity Analyst / Portfolio Manager</option><option>Risk &amp; Compliance Officer</option><option>Operations &amp; Reporting Officer</option><option>Stakeholder Relations Officer</option><option>Not sure yet</option></select>
+          </div>
+          <div class="fg"><label class="fl">Why Prune Hill? (2–3 sentences)</label><textarea class="fta fi" placeholder="What draws you to the fund, and what do you want to learn?"></textarea></div>
+          <button class="btn-submit" onclick="submitApply()">Submit Application</button>
+        </div>
+        <div class="form-ok" id="apply-ok"><p>Application received.</p><small>We'll be in touch within two weeks.</small></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="f-brand"><strong>Prune Hill Capital</strong> — RHUL Business School</div>
+    <div class="f-copy">Student-led · Non-profit · Royal Holloway, University of London</div>
+    <div class="f-nav">
+      <a onclick="showPage('home')">Home</a>
+      <a onclick="showPage('about')">About</a>
+      <a onclick="showPage('mandate')">Mandate</a>
+      <a onclick="showPage('contact')">Contact</a>
+    </div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     CONTACT
+══════════════════════════════════════ -->
+<div class="page" id="contact">
+  <div class="contact-layout">
+    <div class="cl reveal">
+      <p class="eyebrow" style="color:var(--pale);">Get in touch</p>
+      <h2 class="section-title" style="color:var(--white);margin-bottom:1.3rem;">We'd love to<br><em>hear from you.</em></h2>
+      <p class="body-text" style="color:rgba(255,255,255,.38);max-width:340px;margin-bottom:3rem;">Whether you're a student thinking about applying, a financial institution interested in partnering, or a fellow university fund — reach out.</p>
+      <div class="cd"><div class="cd-lbl">Founder</div><div class="cd-val">Hugo Christie<br><a href="mailto:hugochristie06@gmail.com">hugochristie06@gmail.com</a></div></div>
+      <div class="cd"><div class="cd-lbl">Based at</div><div class="cd-val">Royal Holloway, University of London<br>Business School, Egham, Surrey TW20 0EX</div></div>
+      <div class="cd"><div class="cd-lbl">Partnerships</div><div class="cd-val">Open to UK student investment funds for joint research, competitions, and governance sharing.</div></div>
+    </div>
+    <div class="cr reveal">
+      <h3>Send a message.</h3>
+      <div id="contact-form">
+        <div class="frow">
+          <div class="fg"><label class="fl">First name</label><input type="text" class="fi" placeholder="Alex"></div>
+          <div class="fg"><label class="fl">Last name</label><input type="text" class="fi" placeholder="Smith"></div>
+        </div>
+        <div class="fg"><label class="fl">Email</label><input type="email" class="fi" placeholder="you@example.com"></div>
+        <div class="fg"><label class="fl">I am a…</label>
+          <select class="fsl fi"><option value="" disabled selected>Select</option><option>RHUL student — interested in joining</option><option>Financial institution / potential partner</option><option>Student fund at another UK university</option><option>Academic or university staff</option><option>Other</option></select>
+        </div>
+        <div class="fg"><label class="fl">Message</label><textarea class="fta fi" style="min-height:120px;" placeholder="How can we help?"></textarea></div>
+        <button class="btn-submit ember" onclick="submitContact()">Send Message</button>
+      </div>
+      <div class="form-ok" id="contact-ok"><p>Message sent.</p><small>We'll respond within a few days.</small></div>
+    </div>
+  </div>
+</div>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.toggle('active', a.dataset.page === id));
+  document.getElementById('nav-links').classList.remove('open');
+  window.scrollTo(0, 0);
+  setTimeout(doReveal, 60);
+}
+function toggleMenu() {
+  document.getElementById('nav-links').classList.toggle('open');
+}
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+});
+function submitApply() {
+  document.getElementById('apply-form').style.display = 'none';
+  document.getElementById('apply-ok').style.display = 'block';
+}
+function submitContact() {
+  document.getElementById('contact-form').style.display = 'none';
+  document.getElementById('contact-ok').style.display = 'block';
+}
+function doReveal() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('in'), i * 70);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.06 });
+  document.querySelectorAll('.reveal:not(.in)').forEach(el => obs.observe(el));
+}
+document.addEventListener('DOMContentLoaded', () => {
+  doReveal();
+  document.querySelector('[data-page="home"]').classList.add('active');
+});
+</script>
+</body>
+</html>
