@@ -19,7 +19,7 @@
   (function () {
     var t = null;
     try { t = localStorage.getItem("phc-theme"); } catch (e) {}
-    if (!t) t = (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+    if (t !== "dark") t = "light"; // Light by default; dark only if the visitor chose it
     document.documentElement.setAttribute("data-theme", t);
   })();
 </script>
