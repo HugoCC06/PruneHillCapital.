@@ -329,7 +329,7 @@ nav.scrolled{box-shadow:0 2px 20px rgba(27,58,45,0.08);}
 
 /* ── TEAM ── */
 .team-wrap{padding:0 5vw 6rem;}
-.team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.5rem;margin-top:2.5rem;}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:2.5rem;}
 .tcard{background:var(--white);overflow:hidden;transition:transform 0.3s,box-shadow 0.3s;}
 .tcard:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(27,58,45,0.1);}
 .tcard-top{background:var(--forest);height:170px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
@@ -339,6 +339,15 @@ nav.scrolled{box-shadow:0 2px 20px rgba(27,58,45,0.08);}
 .tcard-name{font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--forest);}
 .tcard-role{font-size:0.57rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--ember);margin-top:0.2rem;margin-bottom:0.7rem;font-weight:500;}
 .tcard-bio{font-size:0.71rem;color:var(--muted);line-height:1.78;font-weight:300;}
+.team-sub{margin-top:1.5rem;background:var(--white);padding:1.8rem 2rem;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:2rem;align-items:center;}
+.team-sub-title{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--forest);margin-bottom:0.4rem;}
+.team-sub-desc{font-size:0.71rem;color:var(--muted);line-height:1.78;font-weight:300;}
+.pm-chips{display:flex;flex-wrap:wrap;gap:0.6rem;}
+.pm-chip{font-size:0.72rem;color:var(--forest);padding:0.55rem 0.95rem;border:1px solid rgba(94,143,116,0.3);background:var(--warm);}
+.team-open{margin-top:1.5rem;padding:1.8rem 2rem;border:1px dashed var(--sage);display:flex;gap:2rem;align-items:center;justify-content:space-between;}
+.team-open .btn-cta{flex-shrink:0;}
+.team-note{margin-top:1.8rem;font-size:0.72rem;color:var(--muted);line-height:1.8;font-weight:300;max-width:760px;}
+@media(max-width:760px){.team-sub{grid-template-columns:1fr;gap:1rem;}.team-open{flex-direction:column;align-items:flex-start;}}
 
 /* ── VALUES ── */
 .vals-strip{background:var(--warm);padding:5rem 5vw;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(94,143,116,0.15);border-bottom:1px solid rgba(94,143,116,0.15);}
@@ -762,7 +771,7 @@ footer{background:var(--forest);padding:2.8rem 5vw;display:flex;align-items:cent
       <p class="eyebrow">Who We Are</p>
       <h2 class="section-title">A fund built by students, <em>for students.</em></h2>
       <p class="section-body" style="margin-bottom:1.2rem;">Prune Hill Capital was founded by Hugo Christie at Royal Holloway's Business School to give students the practical investing experience that genuinely differentiates them, and to build something that outlasts any single cohort.</p>
-      <p class="section-body" style="margin-bottom:1.2rem;">The fund operates under a formal Investment Mandate (v1.1), overseen by an Academic Adviser and Advisory Board. A succession policy governs leadership transitions, ensuring continuity regardless of graduations or departures.</p>
+      <p class="section-body" style="margin-bottom:1.2rem;">The fund operates under a formal Investment Mandate (v1.2), overseen by an Academic Adviser and Advisory Board. A succession policy governs leadership transitions, ensuring continuity regardless of graduations or departures.</p>
       <p class="section-body">As a non-profit, no student or staff member receives personal financial benefit. All gains remain within RHUL - with a defined pathway to student hardship support as the fund grows.</p>
     </div>
     <div>
@@ -782,21 +791,43 @@ footer{background:var(--forest);padding:2.8rem 5vw;display:flex;align-items:cent
     <div class="team-grid">
       <div class="tcard">
         <div class="tcard-top"><div class="tcard-init">HC</div></div>
-        <div class="tcard-body"><div class="tcard-name">Hugo Christie</div><div class="tcard-role">Founder · Managing Partner / CIO</div><p class="tcard-bio">Leads the investment process, chairs the Investment Committee, and is the primary contact for the Academic Adviser and Advisory Board. Responsible for portfolio construction and overall mandate compliance.</p></div>
+        <div class="tcard-body"><div class="tcard-name">Hugo Christie</div><div class="tcard-role">Founder · Managing Partner / CIO</div><p class="tcard-bio">Leads the investment process and chairs the Investment Committee. Primary contact for the Academic Adviser, broker and Advisory Board.</p></div>
       </div>
       <div class="tcard">
-        <div class="tcard-top"><div class="tcard-init">R&amp;C</div></div>
-        <div class="tcard-body"><div class="tcard-name">Risk &amp; Compliance Officer</div><div class="tcard-role">Investment Committee · Risk Management</div><p class="tcard-bio">Checks every proposed trade against the mandate before execution. Maintains the risk register, documents all committee decisions, and flags any breaches to the CIO and Academic Adviser.</p></div>
+        <div class="tcard-top"><div class="tcard-init">JN</div></div>
+        <div class="tcard-body"><div class="tcard-name">Julinda Nuri</div><div class="tcard-role">Academic Adviser</div><p class="tcard-bio">Oversees the Fund alongside the Advisory Board. Authorised signatory for the brokerage account; approves mandate amendments and partnerships.</p></div>
       </div>
       <div class="tcard">
-        <div class="tcard-top"><div class="tcard-init">O&amp;R</div></div>
-        <div class="tcard-body"><div class="tcard-name">Operations &amp; Reporting Officer</div><div class="tcard-role">Fund Operations · Performance Reporting</div><p class="tcard-bio">Prepares monthly factsheets, quarterly review packs, and the annual report. Manages all fund documentation, version control, and the formal reporting calendar.</p></div>
+        <div class="tcard-top"><div class="tcard-init">MS</div></div>
+        <div class="tcard-body"><div class="tcard-name">Manjit Singh</div><div class="tcard-role">Head of Research</div><p class="tcard-bio">Leads the research function and coordinates the Portfolio Managers and Analysts. Oversees research standards, theses, allocation and the idea pipeline.</p></div>
       </div>
       <div class="tcard">
-        <div class="tcard-top"><div class="tcard-init">SR</div></div>
-        <div class="tcard-body"><div class="tcard-name">Stakeholder Relations Officer</div><div class="tcard-role">External Relations · Partnerships</div><p class="tcard-bio">Manages Prune Hill's external profile and relationships with partner student funds at other UK universities - joint research, investment competitions, and governance sharing.</p></div>
+        <div class="tcard-top"><div class="tcard-init">C</div></div>
+        <div class="tcard-body"><div class="tcard-name">Christa</div><div class="tcard-role">Risk &amp; Compliance Officer</div><p class="tcard-bio">Monitors mandate adherence, maintains the risk register, and checks every proposed trade before execution.</p></div>
+      </div>
+      <div class="tcard">
+        <div class="tcard-top"><div class="tcard-init">VS</div></div>
+        <div class="tcard-body"><div class="tcard-name">Veer Shinh</div><div class="tcard-role">Operations &amp; Reporting Officer</div><p class="tcard-bio">Manages fund reporting, document control and operational workflows, including factsheets and quarterly review packs.</p></div>
       </div>
     </div>
+
+    <div class="team-sub">
+      <div class="team-sub-head">
+        <div class="team-sub-title">Portfolio Managers</div>
+        <p class="team-sub-desc">Sector and geography research, trade pitches to the Investment Committee, and monitoring of assigned areas.</p>
+      </div>
+      <div class="pm-chips"><span class="pm-chip">Kiana Advani</span><span class="pm-chip">John Carlo Sigua</span><span class="pm-chip">Aaryan Patel</span><span class="pm-chip">Henry Bates-Hawkesworth</span><span class="pm-chip">Milan Toohey</span></div>
+    </div>
+
+    <div class="team-open">
+      <div>
+        <div class="team-sub-title">Analysts: to be appointed</div>
+        <p class="team-sub-desc">Company research, financial modelling, valuation and industry analysis, supporting the Head of Research and Portfolio Managers. Applications are open now.</p>
+      </div>
+      <button class="btn-cta" onclick="showPage('programme')">Apply Now</button>
+    </div>
+
+    <p class="team-note">The Investment Committee is chaired by the CIO and comprises the Academic Adviser, Risk &amp; Compliance Officer, Operations &amp; Reporting Officer and Portfolio Managers. An Advisory Board of three or more members provides non-executive guidance on strategy and governance over two-year terms.</p>
   </div>
 
   <div class="vals-strip fi-anim">
@@ -816,7 +847,7 @@ footer{background:var(--forest);padding:2.8rem 5vw;display:flex;align-items:cent
 <!-- ══════════ MANDATE ══════════ -->
 <div class="page" id="mandate">
   <div class="page-header">
-    <p class="ph-tag">Investment Mandate v1.1 · 2026-2027</p>
+    <p class="ph-tag">Investment Mandate v1.2 · 2026-2027</p>
     <h1>What we invest in.<br><em>What we never will.</em></h1>
     <p class="ph-sub">Approved by Academic Adviser · Royal Holloway, University of London</p>
   </div>
@@ -948,7 +979,7 @@ footer{background:var(--forest);padding:2.8rem 5vw;display:flex;align-items:cent
 
   <footer>
     <div class="f-brand"><strong>Prune Hill Capital</strong> - RHUL Business School</div>
-    <div class="f-copy">Investment Mandate v1.1 · 2026-2027 · Approved by Academic Adviser</div>
+    <div class="f-copy">Investment Mandate v1.2 · 2026-2027 · Approved by Academic Adviser</div>
     <div class="f-nav"><a onclick="showPage('home')">Home</a><a onclick="showPage('about')">About</a><a onclick="showPage('programme')">Programme</a><a onclick="showPage('contact')">Contact</a></div>
   </footer>
 </div>
