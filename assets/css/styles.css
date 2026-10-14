@@ -17,6 +17,7 @@
   --brand-soft: #E4EEE8;
   --gold: #A9792C;
   --gold-soft: #F6EBD6;
+  --rhul-orange: #EB641E; /* Royal Holloway "Brick Orange" (Pantone 166C) */
   --on-brand: #FFFFFF;
   --ok: #2E7D5B;
   --ok-soft: #E3F2EA;
@@ -97,6 +98,7 @@ p { margin: 0; }
   text-transform: uppercase;
   color: var(--gold);
 }
+.eyebrow-rhul { color: var(--rhul-orange); }
 
 .container {
   width: 100%;
