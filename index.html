@@ -525,10 +525,8 @@ nav.scrolled{box-shadow:0 2px 20px rgba(27,58,45,0.08);}
 .btn-submit:hover{background:var(--sage);}
 .btn-submit.ember{background:var(--ember);}
 .btn-submit.ember:hover{background:var(--ember-lt);}
-.form-err{display:none;font-size:0.72rem;color:var(--ember);margin-top:0.8rem;line-height:1.5;font-weight:400;}
-.form-err.show{display:block;}
-.form-err a{color:inherit;}
 .btn-submit:disabled{opacity:0.6;cursor:wait;}
+.fi-file{padding:0.6rem;cursor:pointer;background:var(--white);}
 .hp-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
 .form-ok{display:none;text-align:center;padding:1.5rem 0;}
 .form-ok p{font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--forest);}
@@ -1047,50 +1045,55 @@ footer{background:var(--forest);padding:2.8rem 5vw;display:flex;align-items:cent
       </div>
       <div class="apply-card">
         <h3>Expression of Interest</h3>
-        <div id="apply-form">
+        <form id="apply-form" method="POST" enctype="multipart/form-data" novalidate onsubmit="return submitApply(event)">
+          <input type="hidden" name="_subject" value="New Application: Equity Analyst / Portfolio Manager"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_next" data-next="apply">
           <div class="frow">
             <div class="fg">
               <label class="fl">First Name</label>
-              <input type="text" class="fi" id="af-fname" placeholder="Your first name">
+              <input type="text" class="fi" id="af-fname" name="First Name" placeholder="Your first name">
               <span class="field-error" id="err-fname">Please enter your first name</span>
             </div>
             <div class="fg">
               <label class="fl">Last Name</label>
-              <input type="text" class="fi" id="af-lname" placeholder="Your last name">
+              <input type="text" class="fi" id="af-lname" name="Last Name" placeholder="Your last name">
               <span class="field-error" id="err-lname">Please enter your last name</span>
             </div>
           </div>
           <div class="fg">
             <label class="fl">RHUL Email</label>
-            <input type="email" class="fi" id="af-email" placeholder="you@rhul.ac.uk">
+            <input type="email" class="fi" id="af-email" name="email" placeholder="you@rhul.ac.uk">
             <span class="field-error" id="err-email">Please enter a valid email address</span>
           </div>
           <div class="frow">
             <div class="fg">
               <label class="fl">Degree Subject</label>
-              <input type="text" class="fi" id="af-degree" placeholder="e.g. Economics">
+              <input type="text" class="fi" id="af-degree" name="Degree Subject" placeholder="e.g. Economics">
               <span class="field-error" id="err-degree">Please enter your degree subject</span>
             </div>
             <div class="fg">
               <label class="fl">Year of Study</label>
-              <select class="fsl fi" id="af-year"><option value="" disabled selected>Select</option><option>Year 1</option><option>Year 2</option><option>Year 3</option><option>Year 4 / Masters</option></select>
+              <select class="fsl fi" id="af-year" name="Year of Study"><option value="" disabled selected>Select</option><option>Year 1</option><option>Year 2</option><option>Year 3</option><option>Year 4 / Masters</option></select>
               <span class="field-error" id="err-year">Please select your year</span>
             </div>
           </div>
           <div class="fg">
             <label class="fl">Role</label>
-            <select class="fsl fi" id="af-role"><option selected>Equity Analyst / Portfolio Manager</option></select>
+            <select class="fsl fi" id="af-role" name="Role"><option selected>Equity Analyst / Portfolio Manager</option></select>
             <span class="field-error" id="err-role">Please select a role</span>
           </div>
           <div class="fg">
             <label class="fl">Why Prune Hill? (2-3 sentences)</label>
-            <textarea class="fta fi" id="af-why" placeholder="What draws you to the fund, and what do you want to learn?"></textarea>
+            <textarea class="fta fi" id="af-why" name="Why Prune Hill" placeholder="What draws you to the fund, and what do you want to learn?"></textarea>
             <span class="field-error" id="err-why">Please tell us why you want to join</span>
           </div>
-          <div class="hp-field" aria-hidden="true"><input type="text" id="af-hp" tabindex="-1" autocomplete="off"></div>
-          <button class="btn-submit" id="af-submit" onclick="submitApply()">Submit Application</button>
-          <p class="form-err" id="apply-err" role="alert"></p>
-        </div>
+          <div class="fg">
+            <label class="fl" for="af-cv">CV (PDF or Word, max 5MB)</label>
+            <input type="file" class="fi fi-file" id="af-cv" name="attachment" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+            <span class="field-error" id="err-cv">Please attach your CV as a PDF or Word file under 5MB</span>
+          </div>
+          <div class="hp-field" aria-hidden="true"><input type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
+          <button type="submit" class="btn-submit" id="af-submit">Submit Application</button>
+        </form>
         <div class="form-ok" id="apply-ok">
           <p>Application received.</p>
           <small>We'll be in touch within two weeks.</small>
@@ -1131,37 +1134,37 @@ footer{background:var(--forest);padding:2.8rem 5vw;display:flex;align-items:cent
         <h3>Send a message.</h3>
         <p>We aim to respond within 2-3 business days. For applications, use the form on the Programme page.</p>
       </div>
-      <div id="contact-form">
+      <form id="contact-form" method="POST" novalidate onsubmit="return submitContact(event)">
+        <input type="hidden" name="_subject" value="New Website Enquiry"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_next" data-next="contact">
         <div class="frow">
           <div class="fg">
             <label class="fl">First Name</label>
-            <input type="text" class="fi" id="cf-fname" placeholder="Alex">
+            <input type="text" class="fi" id="cf-fname" name="First Name" placeholder="Alex">
             <span class="field-error" id="cerr-fname">Please enter your name</span>
           </div>
           <div class="fg">
             <label class="fl">Last Name</label>
-            <input type="text" class="fi" id="cf-lname" placeholder="Smith">
+            <input type="text" class="fi" id="cf-lname" name="Last Name" placeholder="Smith">
             <span class="field-error" id="cerr-lname">Please enter your last name</span>
           </div>
         </div>
         <div class="fg">
           <label class="fl">Email</label>
-          <input type="email" class="fi" id="cf-email" placeholder="you@example.com">
+          <input type="email" class="fi" id="cf-email" name="email" placeholder="you@example.com">
           <span class="field-error" id="cerr-email">Please enter a valid email</span>
         </div>
         <div class="fg"><label class="fl">I am a…</label>
-          <select class="fsl fi" id="cf-type"><option value="" disabled selected>Select</option><option>RHUL student - interested in joining</option><option>Financial institution / potential partner</option><option>Student fund at another UK university</option><option>Academic or university staff</option><option>Other</option></select>
+          <select class="fsl fi" id="cf-type" name="Enquirer Type"><option value="" disabled selected>Select</option><option>RHUL student - interested in joining</option><option>Financial institution / potential partner</option><option>Student fund at another UK university</option><option>Academic or university staff</option><option>Other</option></select>
           <span class="field-error" id="cerr-type">Please select an option</span>
         </div>
         <div class="fg">
           <label class="fl">Message</label>
-          <textarea class="fta fi" id="cf-msg" style="min-height:120px;" placeholder="How can we help?"></textarea>
+          <textarea class="fta fi" id="cf-msg" name="Message" style="min-height:120px;" placeholder="How can we help?"></textarea>
           <span class="field-error" id="cerr-msg">Please write a message</span>
         </div>
-        <div class="hp-field" aria-hidden="true"><input type="text" id="cf-hp" tabindex="-1" autocomplete="off"></div>
-        <button class="btn-submit ember" id="cf-submit" onclick="submitContact()">Send Message</button>
-        <p class="form-err" id="contact-err" role="alert"></p>
-      </div>
+        <div class="hp-field" aria-hidden="true"><input type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
+        <button type="submit" class="btn-submit ember" id="cf-submit">Send Message</button>
+      </form>
       <div class="form-ok" id="contact-ok"><p>Message sent.</p><small>We'll respond within a few days.</small></div>
     </div>
   </div>
