@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en-GB" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portfolio Framework | Prune Hill Capital</title>
+<meta name="description" content="Prune Hill Capital's target allocation, geographic exposure, risk limits and ESG benchmarks, with an interactive trade compliance checker.">
+<meta property="og:title" content="Portfolio Framework | Prune Hill Capital">
+<meta property="og:description" content="Prune Hill Capital's target allocation, geographic exposure, risk limits and ESG benchmarks, with an interactive trade compliance checker.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1B3A2D">
+<link rel="apple-touch-icon" href="assets/img/logo-original.png">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;1,500&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script>
+  (function () {
+    var t = null;
+    try { t = localStorage.getItem("phc-theme"); } catch (e) {}
+    if (!t) t = (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", t);
+  })();
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html" aria-label="Prune Hill Capital home">
+      <img src="assets/img/logo.svg" alt="" width="38" height="38">
+      <span class="brand-text"><span class="brand-name">Prune Hill Capital</span><span class="brand-sub">Royal Holloway Student Fund</span></span>
+    </a>
+    <nav aria-label="Main">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="mandate.html">Mandate</a></li>
+        <li><a href="portfolio.html" aria-current="page">Portfolio</a></li>
+        <li><a href="process.html">Process</a></li>
+        <li><a href="programme.html">Join</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn theme-btn" type="button" aria-label="Switch colour theme">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M20 14.5A8 8 0 019.5 4 8 8 0 1020 14.5z"/></svg>
+      </button>
+      <a class="btn btn-primary" href="programme.html#apply">Apply now</a>
+      <button class="icon-btn menu-btn" type="button" aria-label="Open menu" aria-controls="nav-links" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero">
+  <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>Portfolio</span></nav>
+    <span class="eyebrow">Portfolio framework</span>
+    <h1>How the portfolio is built.</h1>
+    <p class="lead">Target ranges by asset class and geography, hard concentration limits and ESG benchmarks. Use the tools below to test a trade or an allocation against the mandate.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid grid-2">
+      <div class="panel reveal">
+        <div class="hero-card-head" style="margin:0"><h3>Asset class targets</h3><span class="pill pill-brand">s4.1</span></div>
+        <div class="ranges">
+          <div class="range-row">
+  <div class="range-top"><strong>Equities (individual stocks)</strong><span>60-80%</span></div>
+  <div class="range-track" data-min="60" data-max="80"><div class="range-fill"></div></div>
+  <p class="note">Core growth driver, diversified across sectors and geographies.</p>
+</div>
+          <div class="range-row">
+  <div class="range-top"><strong>ETFs (incl. ESG / thematic)</strong><span>15-30%</span></div>
+  <div class="range-track" data-min="15" data-max="30"><div class="range-fill"></div></div>
+  <p class="note">Broad exposure reduces single-stock concentration.</p>
+</div>
+          <div class="range-row">
+  <div class="range-top"><strong>Cash and equivalents</strong><span>5-15%</span></div>
+  <div class="range-track" data-min="5" data-max="15"><div class="range-fill"></div></div>
+  <p class="note">Liquidity buffer and capital for new opportunities.</p>
+</div>
+          <div class="range-scale" aria-hidden="true"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
+        </div>
+      </div>
+      <div class="panel reveal">
+        <div class="hero-card-head" style="margin:0"><h3>Geographic exposure</h3><span class="pill pill-brand">s4.2</span></div>
+        <div class="ranges">
+          <div class="range-row">
+  <div class="range-top"><strong>United States</strong><span>30-50%</span></div>
+  <div class="range-track" data-min="30" data-max="50"><div class="range-fill"></div></div>
+  <p class="note">S&amp;P 500 equities, ESGU, ESGV.</p>
+</div>
+          <div class="range-row">
+  <div class="range-top"><strong>United Kingdom</strong><span>20-40%</span></div>
+  <div class="range-track" data-min="20" data-max="40"><div class="range-fill"></div></div>
+  <p class="note">UK-listed equities and ESG ETFs.</p>
+</div>
+          <div class="range-row">
+  <div class="range-top"><strong>International developed (ex-UK/US)</strong><span>10-30%</span></div>
+  <div class="range-track" data-min="10" data-max="30"><div class="range-fill"></div></div>
+  <p class="note">ESGD, VSGX, European and Asian equities.</p>
+</div>
+          <div class="range-row">
+  <div class="range-top"><strong>Emerging markets</strong><span>0-10%</span></div>
+  <div class="range-track" data-min="0" data-max="10"><div class="range-fill"></div></div>
+  <p class="note">ESG-screened EM ETFs only.</p>
+</div>
+          <div class="range-scale" aria-hidden="true"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">Risk framework</span><h2>Limits that don't bend.</h2><p class="lead">The Fund has a moderate risk tolerance, consistent with long-term equity investing and its educational mission.</p></div>
+    <div class="grid grid-4">
+      <div class="cal-item reveal"><span class="freq num">10%</span><strong>Max single position</strong><p class="note">Of total portfolio value.</p></div>
+      <div class="cal-item reveal"><span class="freq num">40%</span><strong>Max single sector</strong><p class="note">Of total portfolio value.</p></div>
+      <div class="cal-item reveal"><span class="freq num">-15%</span><strong>6-month drawdown</strong><p class="note">Rolling. Triggers a formal investment and leadership review.</p></div>
+      <div class="cal-item reveal"><span class="freq num">-20%</span><strong>12-month drawdown</strong><p class="note">Rolling. Triggers a formal investment and leadership review.</p></div>
+    </div>
+    <div class="grid grid-3" style="margin-top:20px">
+      <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M7 21h10M5 7h14"/><path d="M5 7l-3 6a3 3 0 006 0L5 7zM19 7l-3 6a3 3 0 006 0l-3-6z"/></svg></div><h3>No leverage</h3><p>No margin and no borrowing to invest, under any circumstances.</p></div>
+      <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg></div><h3>Daily liquidity</h3><p>Only instruments that are daily-liquid under normal market conditions. Typical holding period: months to years.</p></div>
+      <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4" stroke-linecap="round"/></svg></div><h3>Pre-trade checks</h3><p>The Risk &amp; Compliance Officer checks every proposed trade against the mandate before execution.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="tools">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">Interactive tools</span><h2>Test it against the mandate.</h2><p class="lead">Check a proposed trade before you pitch it, or model a whole-portfolio allocation against the target ranges.</p></div>
+
+    <div data-tabs>
+      <div class="tabs" role="tablist" aria-label="Tools">
+        <button class="tab" role="tab" id="tab-checker" aria-controls="panel-checker" aria-selected="true">Trade compliance checker</button>
+        <button class="tab" role="tab" id="tab-planner" aria-controls="panel-planner" aria-selected="false">Allocation planner</button>
+      </div>
+
+      <div id="panel-checker" role="tabpanel" aria-labelledby="tab-checker">
+        <div class="tool">
+          <form class="panel" id="checker" novalidate>
+            <h3>Proposed trade</h3>
+            <div class="form-row">
+              <div class="field"><label for="ck-instrument">Instrument</label>
+                <select id="ck-instrument">
+                  <option value="equity">Listed equity (ordinary shares)</option>
+                  <option value="etf">ETF / index fund</option>
+                  <option value="cash">Cash / money market</option>
+                  <option value="derivative">Derivative (option, future, CFD...)</option>
+                  <option value="margin">Bought on margin / leveraged</option>
+                  <option value="crypto">Cryptoasset / token</option>
+                  <option value="unlisted">Unlisted / private / P2P</option>
+                </select></div>
+              <div class="field"><label for="ck-market">Market</label>
+                <select id="ck-market">
+                  <option value="us">United States</option>
+                  <option value="uk">United Kingdom</option>
+                  <option value="intl">International developed</option>
+                  <option value="em">Emerging markets</option>
+                </select></div>
+            </div>
+            <div class="field"><label for="ck-sector">Sector</label>
+              <select id="ck-sector">
+                <option value="tech">Information technology</option>
+                <option value="health">Healthcare</option>
+                <option value="fin">Financials</option>
+                <option value="consumer">Consumer staples / discretionary</option>
+                <option value="ind">Industrials</option>
+                <option value="comm">Communication services</option>
+                <option value="util">Utilities / renewables</option>
+                <option value="re">Real estate</option>
+                <option value="mat">Materials</option>
+                <option value="diversified">Diversified (broad ETF)</option>
+                <option value="fossil">Fossil fuels (oil, gas, coal)</option>
+                <option value="arms">Armaments</option>
+                <option value="gambling">Gambling</option>
+                <option value="adult">Adult entertainment</option>
+                <option value="tobacco">Tobacco</option>
+              </select></div>
+            <div class="form-row">
+              <div class="field"><label for="ck-position">Position weight after trade (%)</label><input id="ck-position" type="number" min="0" max="100" step="0.1" value="6" inputmode="decimal"></div>
+              <div class="field"><label for="ck-sector-exp">Sector exposure after trade (%)</label><input id="ck-sector-exp" type="number" min="0" max="100" step="0.1" value="28" inputmode="decimal"></div>
+            </div>
+            <div class="form-row">
+              <div class="field"><label for="ck-cash">Cash after trade (%)</label><input id="ck-cash" type="number" min="0" max="100" step="0.1" value="9" inputmode="decimal"></div>
+              <div class="field"><label for="ck-horizon">Intended holding period</label>
+                <select id="ck-horizon"><option value="long">Months to years</option><option value="short">Days to weeks (trading)</option></select></div>
+            </div>
+            <label class="check"><input type="checkbox" id="ck-liquid" checked> Daily-liquid under normal market conditions</label>
+            <label class="check"><input type="checkbox" id="ck-norms"> Company is in serious, ongoing breach of human rights or environmental norms</label>
+          </form>
+          <div class="panel" aria-live="polite">
+            <h3>Result</h3>
+            <div id="checker-results"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="panel-planner" role="tabpanel" aria-labelledby="tab-planner" hidden>
+        <div class="tool" id="planner">
+          <div class="panel">
+            <h3>Asset class</h3>
+            <div class="slider-row" data-group="asset" data-min="60" data-max="80">
+  <label for="pl-eq">Equities</label><output for="pl-eq">70%</output>
+  <div style="grid-column:1/-1;position:relative">
+    <div class="range-track" data-min="60" data-max="80" style="height:8px"><div class="range-fill" style="opacity:.25"></div><div class="range-marker"></div></div>
+  </div>
+  <input type="range" id="pl-eq" min="0" max="100" step="1" value="70">
+  <span class="hint">Target 60-80% &middot; <span class="pill pill-ok">In range</span></span>
+</div>
+            <div class="slider-row" data-group="asset" data-min="15" data-max="30">
+  <label for="pl-etf">ETFs</label><output for="pl-etf">20%</output>
+  <div style="grid-column:1/-1;position:relative">
+    <div class="range-track" data-min="15" data-max="30" style="height:8px"><div class="range-fill" style="opacity:.25"></div><div class="range-marker"></div></div>
+  </div>
+  <input type="range" id="pl-etf" min="0" max="100" step="1" value="20">
+  <span class="hint">Target 15-30% &middot; <span class="pill pill-ok">In range</span></span>
+</div>
+            <div class="slider-row" data-group="asset" data-min="5" data-max="15">
+  <label for="pl-cash">Cash</label><output for="pl-cash">10%</output>
+  <div style="grid-column:1/-1;position:relative">
+    <div class="range-track" data-min="5" data-max="15" style="height:8px"><div class="range-fill" style="opacity:.25"></div><div class="range-marker"></div></div>
+  </div>
+  <input type="range" id="pl-cash" min="0" max="100" step="1" value="10">
+  <span class="hint">Target 5-15% &middot; <span class="pill pill-ok">In range</span></span>
+</div>
+            <div class="total-line"><span>Total</span><span data-total="asset" class="num">100%</span></div>
+          </div>
+          <div class="panel">
+            <h3>Geography</h3>
+            <div class="slider-row" data-group="geo" data-min="30" data-max="50">
+  <label for="pl-us">United States</label><output for="pl-us">40%</output>
+  <div style="grid-column:1/-1;position:relative">
+    <div class="range-track" data-min="30" data-max="50" style="height:8px"><div class="range-fill" style="opacity:.25"></div><div class="range-marker"></div></div>
+  </div>
+  <input type="range" id="pl-us" min="0" max="100" step="1" value="40">
+  <span class="hint">Target 30-50% &middot; <span class="pill pill-ok">In range</span></span>
+</div>
+            <div class="slider-row" data-group="geo" data-min="20" data-max="40">
+  <label for="pl-uk">United Kingdom</label><output for="pl-uk">30%</output>
+  <div style="grid-column:1/-1;position:relative">
+    <div class="range-track" data-min="20" data-max="40" style="height:8px"><div class="range-fill" style="opacity:.25"></div><div class="range-marker"></div></div>
+  </div>
+  <input type="range" id="pl-uk" min="0" max="100" step="1" value="30">
+  <span class="hint">Target 20-40% &middot; <span class="pill pill-ok">In range</span></span>
+</div>
+            <div class="slider-row" data-group="geo" data-min="10" data-max="30">
+  <label for="pl-intl">International developed</label><output for="pl-intl">22%</output>
+  <div style="grid-column:1/-1;position:relative">
+    <div class="range-track" data-min="10" data-max="30" style="height:8px"><div class="range-fill" style="opacity:.25"></div><div class="range-marker"></div></div>
+  </div>
+  <input type="range" id="pl-intl" min="0" max="100" step="1" value="22">
+  <span class="hint">Target 10-30% &middot; <span class="pill pill-ok">In range</span></span>
+</div>
+            <div class="slider-row" data-group="geo" data-min="0" data-max="10">
+  <label for="pl-em">Emerging markets</label><output for="pl-em">8%</output>
+  <div style="grid-column:1/-1;position:relative">
+    <div class="range-track" data-min="0" data-max="10" style="height:8px"><div class="range-fill" style="opacity:.25"></div><div class="range-marker"></div></div>
+  </div>
+  <input type="range" id="pl-em" min="0" max="100" step="1" value="8">
+  <span class="hint">Target 0-10% &middot; <span class="pill pill-ok">In range</span></span>
+</div>
+            <div class="total-line"><span>Total</span><span data-total="geo" class="num">100%</span></div>
+          </div>
+          <div class="panel" style="grid-column:1/-1">
+            <div id="planner-summary"></div>
+            <div><button class="btn btn-ghost" type="button" id="planner-reset">Reset to example</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container split top">
+    <div class="stack reveal">
+      <span class="eyebrow">Benchmarks</span>
+      <h2>Measured against ESG indices.</h2>
+      <p class="lead">Performance is judged against ESG-focused benchmarks that reflect the Fund's sustainable mandate.</p>
+      <p>The Investment Committee may adjust the primary benchmark annually based on portfolio composition, subject to Academic Adviser approval.</p>
+    </div>
+    <div class="table-wrap reveal"><table><thead><tr><th>Ticker</th><th>Benchmark</th><th>Role</th></tr></thead><tbody>
+      <tr><td class="mono">ESGU</td><td>iShares ESG Aware MSCI USA ETF</td><td><span class="pill pill-brand">Primary</span></td></tr>
+      <tr><td class="mono">ESGD</td><td>iShares ESG Aware MSCI EAFE ETF</td><td><span class="pill pill-brand">Primary</span></td></tr>
+      <tr><td class="mono">ESGV</td><td>Vanguard ESG US Stock ETF</td><td>Additional</td></tr>
+      <tr><td class="mono">ICLN</td><td>iShares Global Clean Energy ETF</td><td>Additional</td></tr>
+      <tr><td class="mono">VSGX</td><td>Vanguard ESG International Stock ETF</td><td>Additional</td></tr>
+    </tbody></table></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">Illustrative positions</span><h2>What fits the mandate.</h2><p class="lead">Examples of the types of positions consistent with the mandate. They are not holdings disclosures or investment recommendations.</p></div>
+    <div class="grid grid-3">
+      <div class="card reveal"><span class="pill pill-brand" style="justify-self:start">ESG ETF &middot; US</span><h3>ESGU</h3><p>iShares ESG Aware MSCI USA ETF. Broad US equity exposure with an ESG screen; primary benchmark constituent.</p></div>
+      <div class="card reveal"><span class="pill pill-brand" style="justify-self:start">Clean energy ETF</span><h3>ICLN</h3><p>iShares Global Clean Energy ETF. Thematic alignment with RHUL's sustainability commitments.</p></div>
+      <div class="card reveal"><span class="pill pill-brand" style="justify-self:start">UK equity</span><h3>ULVR.L</h3><p>Unilever PLC. Large-cap, ESG-positive UK stock with global diversification.</p></div>
+    </div>
+    <div class="callout" style="margin-top:24px"><strong>Holdings and performance</strong> are reported to members through monthly factsheets, quarterly portfolio reviews and the annual report.</div>
+  </div>
+</section>
+<section class="section tight">
+  <div class="container">
+    <div class="cta-band reveal">
+      <svg class="deco" viewBox="0 0 200 200" aria-hidden="true"><path d="M0 150 C 50 90, 90 80, 130 105 S 180 120, 200 110" stroke="#fff" stroke-width="3" fill="none"/><path d="M20 70 L70 40 L100 55 L150 20" stroke="#E2C48A" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div>
+        <span class="eyebrow">Recruiting now</span>
+        <h2 style="margin-top:10px">Learn investing by doing it.</h2>
+        <p>Open to every enrolled Royal Holloway student. No finance background needed, just curiosity, rigour and around 6-8 hours a week in term.</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-light" href="programme.html#apply">Apply to join <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-outline-light" href="programme.html">How it works</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <img src="assets/img/logo.svg" alt="" width="38" height="38">
+          <span class="brand-text"><span class="brand-name">Prune Hill Capital</span><span class="brand-sub">Royal Holloway Student Fund</span></span>
+        </a>
+        <p>A student-led, non-profit investment fund operating under Royal Holloway, University of London Business School.</p>
+      </div>
+      <div>
+        <h4>The Fund</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="mandate.html">Investment Mandate</a></li>
+          <li><a href="portfolio.html">Portfolio Framework</a></li>
+          <li><a href="process.html">Process &amp; Governance</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get involved</h4>
+        <ul>
+          <li><a href="programme.html">Join the Fund</a></li>
+          <li><a href="programme.html#apply">Apply</a></li>
+          <li><a href="about.html#partnerships">Partnerships</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Find us</h4>
+        <ul>
+          <li>Royal Holloway, University of London<br>Business School<br>Egham, Surrey TW20 0EX</li>
+          <li><a data-linkedin href="https://www.linkedin.com/company/prune-hill-capital" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Prune Hill Capital is not a registered investment adviser. Content on this site is for educational purposes only and does not constitute investment advice or a recommendation.</p>
+      <p>&copy; <span data-year>2026</span> Prune Hill Capital</p>
+    </div>
+  </div>
+</footer>
+<button class="back-top" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
