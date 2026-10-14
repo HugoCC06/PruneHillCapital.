@@ -477,6 +477,7 @@ nav.scrolled{box-shadow:0 2px 20px rgba(27,58,45,0.08);}
 
 .roles-section{padding:0 5vw 5rem;}
 .roles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.4rem;margin-top:2.5rem;}
+.roles-grid.single{grid-template-columns:minmax(0,640px);}
 .rcard{border:1px solid rgba(94,143,116,0.2);padding:2rem;background:var(--white);transition:border-color 0.2s,box-shadow 0.2s;}
 .rcard:hover{border-color:var(--sage);box-shadow:0 8px 24px rgba(27,58,45,0.07);}
 .rcard-num{font-family:'DM Serif Display',serif;font-size:2rem;color:var(--parchment);margin-bottom:0.7rem;}
@@ -515,6 +516,11 @@ nav.scrolled{box-shadow:0 2px 20px rgba(27,58,45,0.08);}
 .btn-submit:hover{background:var(--sage);}
 .btn-submit.ember{background:var(--ember);}
 .btn-submit.ember:hover{background:var(--ember-lt);}
+.form-err{display:none;font-size:0.72rem;color:var(--ember);margin-top:0.8rem;line-height:1.5;font-weight:400;}
+.form-err.show{display:block;}
+.form-err a{color:inherit;}
+.btn-submit:disabled{opacity:0.6;cursor:wait;}
+.hp-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
 .form-ok{display:none;text-align:center;padding:1.5rem 0;}
 .form-ok p{font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--forest);}
 .form-ok small{font-size:0.71rem;color:var(--muted);margin-top:0.4rem;display:block;font-weight:300;}
@@ -960,7 +966,7 @@ footer{background:var(--forest);padding:2.8rem 5vw;display:flex;align-items:cent
       <h2 class="section-title">Demanding.<br><em>Worth it.</em></h2>
       <p class="section-body" style="margin-bottom:1.3rem;">Membership means roughly 6-8 hours a week during term, bi-weekly research meetings on campus, plus independent reading, modelling, and memo writing.</p>
       <p class="section-body" style="margin-bottom:1.3rem;">Selection is two interviews: a get-to-know conversation, then five practical questions. We're looking for curiosity and commitment, not a finance CV.</p>
-      <p class="section-body">Roles run for the academic year, reviewed at end of Autumn Term. Re-appointment is possible. Third-year students are eligible for all roles, including CIO.</p>
+      <p class="section-body">Roles run for the academic year, reviewed at end of Autumn Term. Re-appointment is possible.</p>
     </div>
     <div class="info-cards">
       <div class="icard"><div class="icard-lbl">Time Commitment</div><div class="icard-val">~6-8 hours per week during term. Bi-weekly meetings on RHUL campus plus independent research.</div></div>
@@ -970,32 +976,15 @@ footer{background:var(--forest);padding:2.8rem 5vw;display:flex;align-items:cent
   </div>
 
   <div class="roles-section fi-anim">
-    <p class="eyebrow">Open Roles</p>
+    <p class="eyebrow">Open Role</p>
     <h2 class="section-title">Find your <em>place</em> in the team.</h2>
-    <div class="roles-grid">
+    <p class="section-body" style="max-width:600px;">Our Investment Committee roles are now filled. We are currently recruiting for one role only.</p>
+    <div class="roles-grid single">
       <div class="rcard">
         <div class="rcard-num">01</div>
         <div class="rcard-title">Equity Analyst / Portfolio Manager</div>
         <p class="rcard-body">Cover a sector, screen ideas, build models, write investment memos, and pitch to the committee. The core role, and where the most learning happens.</p>
         <div class="rcard-tags"><span class="rtag">Equity Research</span><span class="rtag">Modelling</span><span class="rtag">Pitching</span></div>
-      </div>
-      <div class="rcard">
-        <div class="rcard-num">02</div>
-        <div class="rcard-title">Risk &amp; Compliance Officer</div>
-        <p class="rcard-body">Check every trade against the mandate before execution. Maintain the risk register and document all Investment Committee decisions.</p>
-        <div class="rcard-tags"><span class="rtag">Risk Management</span><span class="rtag">Compliance</span><span class="rtag">Documentation</span></div>
-      </div>
-      <div class="rcard">
-        <div class="rcard-num">03</div>
-        <div class="rcard-title">Operations &amp; Reporting Officer</div>
-        <p class="rcard-body">Run the fund's reporting calendar. Prepare monthly factsheets, quarterly reviews, and the annual report.</p>
-        <div class="rcard-tags"><span class="rtag">Reporting</span><span class="rtag">Operations</span></div>
-      </div>
-      <div class="rcard">
-        <div class="rcard-num">04</div>
-        <div class="rcard-title">Stakeholder Relations Officer</div>
-        <p class="rcard-body">Manage Prune Hill's external presence and partnerships with other UK university student funds; joint research, competitions, and governance sharing.</p>
-        <div class="rcard-tags"><span class="rtag">Partnerships</span><span class="rtag">External Relations</span></div>
       </div>
     </div>
   </div>
@@ -1058,8 +1047,8 @@ footer{background:var(--forest);padding:2.8rem 5vw;display:flex;align-items:cent
             </div>
           </div>
           <div class="fg">
-            <label class="fl">Role Interest</label>
-            <select class="fsl fi" id="af-role"><option value="" disabled selected>Select a role</option><option>Equity Analyst / Portfolio Manager</option><option>Risk &amp; Compliance Officer</option><option>Operations &amp; Reporting Officer</option><option>Stakeholder Relations Officer</option><option>Not sure yet</option></select>
+            <label class="fl">Role</label>
+            <select class="fsl fi" id="af-role"><option selected>Equity Analyst / Portfolio Manager</option></select>
             <span class="field-error" id="err-role">Please select a role</span>
           </div>
           <div class="fg">
@@ -1067,7 +1056,9 @@ footer{background:var(--forest);padding:2.8rem 5vw;display:flex;align-items:cent
             <textarea class="fta fi" id="af-why" placeholder="What draws you to the fund, and what do you want to learn?"></textarea>
             <span class="field-error" id="err-why">Please tell us why you want to join</span>
           </div>
-          <button class="btn-submit" onclick="submitApply()">Submit Application</button>
+          <div class="hp-field" aria-hidden="true"><input type="text" id="af-hp" tabindex="-1" autocomplete="off"></div>
+          <button class="btn-submit" id="af-submit" onclick="submitApply()">Submit Application</button>
+          <p class="form-err" id="apply-err" role="alert"></p>
         </div>
         <div class="form-ok" id="apply-ok">
           <p>Application received.</p>
@@ -1136,7 +1127,9 @@ footer{background:var(--forest);padding:2.8rem 5vw;display:flex;align-items:cent
           <textarea class="fta fi" id="cf-msg" style="min-height:120px;" placeholder="How can we help?"></textarea>
           <span class="field-error" id="cerr-msg">Please write a message</span>
         </div>
-        <button class="btn-submit ember" onclick="submitContact()">Send Message</button>
+        <div class="hp-field" aria-hidden="true"><input type="text" id="cf-hp" tabindex="-1" autocomplete="off"></div>
+        <button class="btn-submit ember" id="cf-submit" onclick="submitContact()">Send Message</button>
+        <p class="form-err" id="contact-err" role="alert"></p>
       </div>
       <div class="form-ok" id="contact-ok"><p>Message sent.</p><small>We'll respond within a few days.</small></div>
     </div>
@@ -1215,13 +1208,6 @@ function validateApply() {
   return valid;
 }
 
-function submitApply() {
-  if (!validateApply()) return;
-  document.getElementById('apply-form').style.display = 'none';
-  document.getElementById('apply-ok').style.display = 'block';
-  document.getElementById('what-next').style.display = 'block';
-}
-
 /* ── CONTACT FORM VALIDATION ── */
 function validateContact() {
   let valid = true;
@@ -1251,12 +1237,6 @@ function validateContact() {
     tp.addEventListener('change', () => { tp.classList.remove('error'); tper.classList.remove('show'); }, { once: true });
   }
   return valid;
-}
-
-function submitContact() {
-  if (!validateContact()) return;
-  document.getElementById('contact-form').style.display = 'none';
-  document.getElementById('contact-ok').style.display = 'block';
 }
 
 /* ── PAGE NAVIGATION ── */
@@ -1298,5 +1278,6 @@ document.addEventListener('DOMContentLoaded', () => {
   setTimeout(animatePillars, 500);
 });
 </script>
+<script src="js/forms.js"></script>
 </body>
 </html>
