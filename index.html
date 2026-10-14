@@ -329,7 +329,7 @@ nav.scrolled{box-shadow:0 2px 20px rgba(27,58,45,0.08);}
 
 /* ── TEAM ── */
 .team-wrap{padding:0 5vw 6rem;}
-.team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.5rem;margin-top:2.5rem;}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:2.5rem;}
 .tcard{background:var(--white);overflow:hidden;transition:transform 0.3s,box-shadow 0.3s;}
 .tcard:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(27,58,45,0.1);}
 .tcard-top{background:var(--forest);height:170px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
@@ -339,6 +339,15 @@ nav.scrolled{box-shadow:0 2px 20px rgba(27,58,45,0.08);}
 .tcard-name{font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--forest);}
 .tcard-role{font-size:0.57rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--ember);margin-top:0.2rem;margin-bottom:0.7rem;font-weight:500;}
 .tcard-bio{font-size:0.71rem;color:var(--muted);line-height:1.78;font-weight:300;}
+.team-sub{margin-top:1.5rem;background:var(--white);padding:1.8rem 2rem;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:2rem;align-items:center;}
+.team-sub-title{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--forest);margin-bottom:0.4rem;}
+.team-sub-desc{font-size:0.71rem;color:var(--muted);line-height:1.78;font-weight:300;}
+.pm-chips{display:flex;flex-wrap:wrap;gap:0.6rem;}
+.pm-chip{font-size:0.72rem;color:var(--forest);padding:0.55rem 0.95rem;border:1px solid rgba(94,143,116,0.3);background:var(--warm);}
+.team-open{margin-top:1.5rem;padding:1.8rem 2rem;border:1px dashed var(--sage);display:flex;gap:2rem;align-items:center;justify-content:space-between;}
+.team-open .btn-cta{flex-shrink:0;}
+.team-note{margin-top:1.8rem;font-size:0.72rem;color:var(--muted);line-height:1.8;font-weight:300;max-width:760px;}
+@media(max-width:760px){.team-sub{grid-template-columns:1fr;gap:1rem;}.team-open{flex-direction:column;align-items:flex-start;}}
 
 /* ── VALUES ── */
 .vals-strip{background:var(--warm);padding:5rem 5vw;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(94,143,116,0.15);border-bottom:1px solid rgba(94,143,116,0.15);}
@@ -477,6 +486,7 @@ nav.scrolled{box-shadow:0 2px 20px rgba(27,58,45,0.08);}
 
 .roles-section{padding:0 5vw 5rem;}
 .roles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.4rem;margin-top:2.5rem;}
+.roles-grid.single{grid-template-columns:minmax(0,640px);}
 .rcard{border:1px solid rgba(94,143,116,0.2);padding:2rem;background:var(--white);transition:border-color 0.2s,box-shadow 0.2s;}
 .rcard:hover{border-color:var(--sage);box-shadow:0 8px 24px rgba(27,58,45,0.07);}
 .rcard-num{font-family:'DM Serif Display',serif;font-size:2rem;color:var(--parchment);margin-bottom:0.7rem;}
@@ -515,6 +525,11 @@ nav.scrolled{box-shadow:0 2px 20px rgba(27,58,45,0.08);}
 .btn-submit:hover{background:var(--sage);}
 .btn-submit.ember{background:var(--ember);}
 .btn-submit.ember:hover{background:var(--ember-lt);}
+.form-err{display:none;font-size:0.72rem;color:var(--ember);margin-top:0.8rem;line-height:1.5;font-weight:400;}
+.form-err.show{display:block;}
+.form-err a{color:inherit;}
+.btn-submit:disabled{opacity:0.6;cursor:wait;}
+.hp-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
 .form-ok{display:none;text-align:center;padding:1.5rem 0;}
 .form-ok p{font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--forest);}
 .form-ok small{font-size:0.71rem;color:var(--muted);margin-top:0.4rem;display:block;font-weight:300;}
@@ -756,7 +771,7 @@ footer{background:var(--forest);padding:2.8rem 5vw;display:flex;align-items:cent
       <p class="eyebrow">Who We Are</p>
       <h2 class="section-title">A fund built by students, <em>for students.</em></h2>
       <p class="section-body" style="margin-bottom:1.2rem;">Prune Hill Capital was founded by Hugo Christie at Royal Holloway's Business School to give students the practical investing experience that genuinely differentiates them, and to build something that outlasts any single cohort.</p>
-      <p class="section-body" style="margin-bottom:1.2rem;">The fund operates under a formal Investment Mandate (v1.1), overseen by an Academic Adviser and Advisory Board. A succession policy governs leadership transitions, ensuring continuity regardless of graduations or departures.</p>
+      <p class="section-body" style="margin-bottom:1.2rem;">The fund operates under a formal Investment Mandate (v1.2), overseen by an Academic Adviser and Advisory Board. A succession policy governs leadership transitions, ensuring continuity regardless of graduations or departures.</p>
       <p class="section-body">As a non-profit, no student or staff member receives personal financial benefit. All gains remain within RHUL - with a defined pathway to student hardship support as the fund grows.</p>
     </div>
     <div>
@@ -776,21 +791,43 @@ footer{background:var(--forest);padding:2.8rem 5vw;display:flex;align-items:cent
     <div class="team-grid">
       <div class="tcard">
         <div class="tcard-top"><div class="tcard-init">HC</div></div>
-        <div class="tcard-body"><div class="tcard-name">Hugo Christie</div><div class="tcard-role">Founder · Managing Partner / CIO</div><p class="tcard-bio">Leads the investment process, chairs the Investment Committee, and is the primary contact for the Academic Adviser and Advisory Board. Responsible for portfolio construction and overall mandate compliance.</p></div>
+        <div class="tcard-body"><div class="tcard-name">Hugo Christie</div><div class="tcard-role">Founder · Managing Partner / CIO</div><p class="tcard-bio">Leads the investment process and chairs the Investment Committee. Primary contact for the Academic Adviser, broker and Advisory Board.</p></div>
       </div>
       <div class="tcard">
-        <div class="tcard-top"><div class="tcard-init">R&amp;C</div></div>
-        <div class="tcard-body"><div class="tcard-name">Risk &amp; Compliance Officer</div><div class="tcard-role">Investment Committee · Risk Management</div><p class="tcard-bio">Checks every proposed trade against the mandate before execution. Maintains the risk register, documents all committee decisions, and flags any breaches to the CIO and Academic Adviser.</p></div>
+        <div class="tcard-top"><div class="tcard-init">JN</div></div>
+        <div class="tcard-body"><div class="tcard-name">Julinda Nuri</div><div class="tcard-role">Academic Adviser</div><p class="tcard-bio">Oversees the Fund alongside the Advisory Board. Authorised signatory for the brokerage account; approves mandate amendments and partnerships.</p></div>
       </div>
       <div class="tcard">
-        <div class="tcard-top"><div class="tcard-init">O&amp;R</div></div>
-        <div class="tcard-body"><div class="tcard-name">Operations &amp; Reporting Officer</div><div class="tcard-role">Fund Operations · Performance Reporting</div><p class="tcard-bio">Prepares monthly factsheets, quarterly review packs, and the annual report. Manages all fund documentation, version control, and the formal reporting calendar.</p></div>
+        <div class="tcard-top"><div class="tcard-init">MS</div></div>
+        <div class="tcard-body"><div class="tcard-name">Manjit Singh</div><div class="tcard-role">Head of Research</div><p class="tcard-bio">Leads the research function and coordinates the Portfolio Managers and Analysts. Oversees research standards, theses, allocation and the idea pipeline.</p></div>
       </div>
       <div class="tcard">
-        <div class="tcard-top"><div class="tcard-init">SR</div></div>
-        <div class="tcard-body"><div class="tcard-name">Stakeholder Relations Officer</div><div class="tcard-role">External Relations · Partnerships</div><p class="tcard-bio">Manages Prune Hill's external profile and relationships with partner student funds at other UK universities - joint research, investment competitions, and governance sharing.</p></div>
+        <div class="tcard-top"><div class="tcard-init">C</div></div>
+        <div class="tcard-body"><div class="tcard-name">Christa</div><div class="tcard-role">Risk &amp; Compliance Officer</div><p class="tcard-bio">Monitors mandate adherence, maintains the risk register, and checks every proposed trade before execution.</p></div>
+      </div>
+      <div class="tcard">
+        <div class="tcard-top"><div class="tcard-init">VS</div></div>
+        <div class="tcard-body"><div class="tcard-name">Veer Shinh</div><div class="tcard-role">Operations &amp; Reporting Officer</div><p class="tcard-bio">Manages fund reporting, document control and operational workflows, including factsheets and quarterly review packs.</p></div>
       </div>
     </div>
+
+    <div class="team-sub">
+      <div class="team-sub-head">
+        <div class="team-sub-title">Portfolio Managers</div>
+        <p class="team-sub-desc">Sector and geography research, trade pitches to the Investment Committee, and monitoring of assigned areas.</p>
+      </div>
+      <div class="pm-chips"><span class="pm-chip">Kiana Advani</span><span class="pm-chip">John Carlo Sigua</span><span class="pm-chip">Aaryan Patel</span><span class="pm-chip">Henry Bates-Hawkesworth</span><span class="pm-chip">Milan Toohey</span></div>
+    </div>
+
+    <div class="team-open">
+      <div>
+        <div class="team-sub-title">Analysts: to be appointed</div>
+        <p class="team-sub-desc">Company research, financial modelling, valuation and industry analysis, supporting the Head of Research and Portfolio Managers. Applications are open now.</p>
+      </div>
+      <button class="btn-cta" onclick="showPage('programme')">Apply Now</button>
+    </div>
+
+    <p class="team-note">The Investment Committee is chaired by the CIO and comprises the Academic Adviser, Risk &amp; Compliance Officer, Operations &amp; Reporting Officer and Portfolio Managers. An Advisory Board of three or more members provides non-executive guidance on strategy and governance over two-year terms.</p>
   </div>
 
   <div class="vals-strip fi-anim">
@@ -810,7 +847,7 @@ footer{background:var(--forest);padding:2.8rem 5vw;display:flex;align-items:cent
 <!-- ══════════ MANDATE ══════════ -->
 <div class="page" id="mandate">
   <div class="page-header">
-    <p class="ph-tag">Investment Mandate v1.1 · 2026-2027</p>
+    <p class="ph-tag">Investment Mandate v1.2 · 2026-2027</p>
     <h1>What we invest in.<br><em>What we never will.</em></h1>
     <p class="ph-sub">Approved by Academic Adviser · Royal Holloway, University of London</p>
   </div>
@@ -942,7 +979,7 @@ footer{background:var(--forest);padding:2.8rem 5vw;display:flex;align-items:cent
 
   <footer>
     <div class="f-brand"><strong>Prune Hill Capital</strong> - RHUL Business School</div>
-    <div class="f-copy">Investment Mandate v1.1 · 2026-2027 · Approved by Academic Adviser</div>
+    <div class="f-copy">Investment Mandate v1.2 · 2026-2027 · Approved by Academic Adviser</div>
     <div class="f-nav"><a onclick="showPage('home')">Home</a><a onclick="showPage('about')">About</a><a onclick="showPage('programme')">Programme</a><a onclick="showPage('contact')">Contact</a></div>
   </footer>
 </div>
@@ -960,7 +997,7 @@ footer{background:var(--forest);padding:2.8rem 5vw;display:flex;align-items:cent
       <h2 class="section-title">Demanding.<br><em>Worth it.</em></h2>
       <p class="section-body" style="margin-bottom:1.3rem;">Membership means roughly 6-8 hours a week during term, bi-weekly research meetings on campus, plus independent reading, modelling, and memo writing.</p>
       <p class="section-body" style="margin-bottom:1.3rem;">Selection is two interviews: a get-to-know conversation, then five practical questions. We're looking for curiosity and commitment, not a finance CV.</p>
-      <p class="section-body">Roles run for the academic year, reviewed at end of Autumn Term. Re-appointment is possible. Third-year students are eligible for all roles, including CIO.</p>
+      <p class="section-body">Roles run for the academic year, reviewed at end of Autumn Term. Re-appointment is possible.</p>
     </div>
     <div class="info-cards">
       <div class="icard"><div class="icard-lbl">Time Commitment</div><div class="icard-val">~6-8 hours per week during term. Bi-weekly meetings on RHUL campus plus independent research.</div></div>
@@ -970,32 +1007,15 @@ footer{background:var(--forest);padding:2.8rem 5vw;display:flex;align-items:cent
   </div>
 
   <div class="roles-section fi-anim">
-    <p class="eyebrow">Open Roles</p>
+    <p class="eyebrow">Open Role</p>
     <h2 class="section-title">Find your <em>place</em> in the team.</h2>
-    <div class="roles-grid">
+    <p class="section-body" style="max-width:600px;">Our Investment Committee roles are now filled. We are currently recruiting for one role only.</p>
+    <div class="roles-grid single">
       <div class="rcard">
         <div class="rcard-num">01</div>
         <div class="rcard-title">Equity Analyst / Portfolio Manager</div>
         <p class="rcard-body">Cover a sector, screen ideas, build models, write investment memos, and pitch to the committee. The core role, and where the most learning happens.</p>
         <div class="rcard-tags"><span class="rtag">Equity Research</span><span class="rtag">Modelling</span><span class="rtag">Pitching</span></div>
-      </div>
-      <div class="rcard">
-        <div class="rcard-num">02</div>
-        <div class="rcard-title">Risk &amp; Compliance Officer</div>
-        <p class="rcard-body">Check every trade against the mandate before execution. Maintain the risk register and document all Investment Committee decisions.</p>
-        <div class="rcard-tags"><span class="rtag">Risk Management</span><span class="rtag">Compliance</span><span class="rtag">Documentation</span></div>
-      </div>
-      <div class="rcard">
-        <div class="rcard-num">03</div>
-        <div class="rcard-title">Operations &amp; Reporting Officer</div>
-        <p class="rcard-body">Run the fund's reporting calendar. Prepare monthly factsheets, quarterly reviews, and the annual report.</p>
-        <div class="rcard-tags"><span class="rtag">Reporting</span><span class="rtag">Operations</span></div>
-      </div>
-      <div class="rcard">
-        <div class="rcard-num">04</div>
-        <div class="rcard-title">Stakeholder Relations Officer</div>
-        <p class="rcard-body">Manage Prune Hill's external presence and partnerships with other UK university student funds; joint research, competitions, and governance sharing.</p>
-        <div class="rcard-tags"><span class="rtag">Partnerships</span><span class="rtag">External Relations</span></div>
       </div>
     </div>
   </div>
@@ -1058,8 +1078,8 @@ footer{background:var(--forest);padding:2.8rem 5vw;display:flex;align-items:cent
             </div>
           </div>
           <div class="fg">
-            <label class="fl">Role Interest</label>
-            <select class="fsl fi" id="af-role"><option value="" disabled selected>Select a role</option><option>Equity Analyst / Portfolio Manager</option><option>Risk &amp; Compliance Officer</option><option>Operations &amp; Reporting Officer</option><option>Stakeholder Relations Officer</option><option>Not sure yet</option></select>
+            <label class="fl">Role</label>
+            <select class="fsl fi" id="af-role"><option selected>Equity Analyst / Portfolio Manager</option></select>
             <span class="field-error" id="err-role">Please select a role</span>
           </div>
           <div class="fg">
@@ -1067,7 +1087,9 @@ footer{background:var(--forest);padding:2.8rem 5vw;display:flex;align-items:cent
             <textarea class="fta fi" id="af-why" placeholder="What draws you to the fund, and what do you want to learn?"></textarea>
             <span class="field-error" id="err-why">Please tell us why you want to join</span>
           </div>
-          <button class="btn-submit" onclick="submitApply()">Submit Application</button>
+          <div class="hp-field" aria-hidden="true"><input type="text" id="af-hp" tabindex="-1" autocomplete="off"></div>
+          <button class="btn-submit" id="af-submit" onclick="submitApply()">Submit Application</button>
+          <p class="form-err" id="apply-err" role="alert"></p>
         </div>
         <div class="form-ok" id="apply-ok">
           <p>Application received.</p>
@@ -1136,7 +1158,9 @@ footer{background:var(--forest);padding:2.8rem 5vw;display:flex;align-items:cent
           <textarea class="fta fi" id="cf-msg" style="min-height:120px;" placeholder="How can we help?"></textarea>
           <span class="field-error" id="cerr-msg">Please write a message</span>
         </div>
-        <button class="btn-submit ember" onclick="submitContact()">Send Message</button>
+        <div class="hp-field" aria-hidden="true"><input type="text" id="cf-hp" tabindex="-1" autocomplete="off"></div>
+        <button class="btn-submit ember" id="cf-submit" onclick="submitContact()">Send Message</button>
+        <p class="form-err" id="contact-err" role="alert"></p>
       </div>
       <div class="form-ok" id="contact-ok"><p>Message sent.</p><small>We'll respond within a few days.</small></div>
     </div>
@@ -1215,13 +1239,6 @@ function validateApply() {
   return valid;
 }
 
-function submitApply() {
-  if (!validateApply()) return;
-  document.getElementById('apply-form').style.display = 'none';
-  document.getElementById('apply-ok').style.display = 'block';
-  document.getElementById('what-next').style.display = 'block';
-}
-
 /* ── CONTACT FORM VALIDATION ── */
 function validateContact() {
   let valid = true;
@@ -1251,12 +1268,6 @@ function validateContact() {
     tp.addEventListener('change', () => { tp.classList.remove('error'); tper.classList.remove('show'); }, { once: true });
   }
   return valid;
-}
-
-function submitContact() {
-  if (!validateContact()) return;
-  document.getElementById('contact-form').style.display = 'none';
-  document.getElementById('contact-ok').style.display = 'block';
 }
 
 /* ── PAGE NAVIGATION ── */
@@ -1298,5 +1309,6 @@ document.addEventListener('DOMContentLoaded', () => {
   setTimeout(animatePillars, 500);
 });
 </script>
+<script src="js/forms.js"></script>
 </body>
 </html>
