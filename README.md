@@ -31,6 +31,7 @@ A static website for Prune Hill Capital, built with plain HTML, CSS and JavaScri
 
 - Team names and roles are in `team.html` (cards and org chart) and in the org chart summary on `index.html`.
 - Colours and fonts are at the top of `assets/css/styles.css` (`:root`). Dark mode colours are in the `[data-theme="dark"]` block.
+- After changing `styles.css`, `config.js` or `main.js`, bump the `?v=` number on their links in every `.html` file (e.g. `?v=20261014` to `?v=20261020`). Browsers cache these files, so without it visitors can see the new page with the old styling for a while.
 - The PDFs linked from the site are in `assets/docs/`. Replace them with new versions using the same file names.
 
 ## Publish on GitHub Pages
