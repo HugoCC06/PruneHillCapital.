@@ -98,7 +98,7 @@ p { margin: 0; }
   text-transform: uppercase;
   color: var(--gold);
 }
-.eyebrow-rhul { color: var(--rhul-orange); }
+.eyebrow-rhul { color: var(--rhul-orange); font-weight: 700; }
 
 .container {
   width: 100%;
