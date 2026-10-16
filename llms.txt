@@ -1,0 +1,24 @@
+# Prune Hill Capital
+
+> Prune Hill Capital is a student-led, non-profit investment fund at Royal Holloway, University of London Business School (Egham, Surrey, UK). Students research, pitch and manage a real, ESG-screened portfolio under a formal Investment Mandate (v1.2, 2026-27), with oversight from an Academic Adviser and an Advisory Board. Tagline: "Learn investing by doing it."
+
+- Chief Investment Officer: Hugo Christie (chairs the Investment Committee)
+- Academic Adviser: Julinda Nuri
+- Head of Research: Manjit Singh
+- Risk & Compliance Officer: Christa Shaji
+- Operations & Reporting Officer: Veer Shinh
+- Portfolio Managers: Kiana Advani, John Carlo Sigua, Aaryan Patel, Henry Bates-Hawkesworth, Milan Toohey
+- Recruiting: Equity Analyst / Portfolio Manager, open to all enrolled Royal Holloway students, no finance background required
+- Non-profit: no member receives personal financial benefit; once at scale, up to 30% of realised net profits may go to RHUL hardship support
+- LinkedIn: https://www.linkedin.com/company/prune-hill-capital
+
+## Pages
+
+- [Home](https://hugocc06.github.io/PruneHillCapital./): overview of the Fund
+- [About](https://hugocc06.github.io/PruneHillCapital./about.html): purpose, story, values and non-profit model
+- [Team](https://hugocc06.github.io/PruneHillCapital./team.html): organisation chart and leadership
+- [Investment Mandate](https://hugocc06.github.io/PruneHillCapital./mandate.html): permitted investments, limits, risk framework and governance
+- [Portfolio Framework](https://hugocc06.github.io/PruneHillCapital./portfolio.html): allocation targets, risk limits and ESG benchmarks
+- [Process & Governance](https://hugocc06.github.io/PruneHillCapital./process.html): how trades are researched, pitched, approved and executed
+- [Join the Fund](https://hugocc06.github.io/PruneHillCapital./programme.html): open role, selection process, FAQ and application form
+- [Contact](https://hugocc06.github.io/PruneHillCapital./contact.html)
