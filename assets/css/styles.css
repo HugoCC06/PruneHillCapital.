@@ -580,3 +580,5 @@ input[type="file"]:hover::file-selector-button { background: var(--brand-2); }
 .otree .officers > li > .ocard.w { width: 180px; }
 .otree .officers ul > li { padding-inline: 4px; }
 .otree .officers ul .ocard { width: 132px; padding-inline: 12px; }
+.otree .officers ul .ocard.ogroup { width: 560px; padding: 13px 16px 15px; }
+.pm-names { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px 16px; margin-top: 6px; font-family: var(--f-display); font-weight: 600; font-size: .98rem; line-height: 1.25; }
