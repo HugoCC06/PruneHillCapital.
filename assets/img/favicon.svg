@@ -1,10 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="30 30 100 100" role="img" aria-label="Prune Hill Capital">
-  <rect x="30" y="30" width="100" height="100" rx="14" fill="#1B3A2D"/>
-  <rect x="44" y="99.5" width="70" height="3" rx="1.5" fill="#FFFFFF" opacity=".4"/>
-  <rect x="52.6" y="74" width="2.8" height="26" rx="1.4" fill="#FFFFFF" opacity=".9"/>
-  <rect x="77.1" y="68" width="3.2" height="32" rx="1.6" fill="#FFFFFF"/>
-  <rect x="100.6" y="74" width="2.8" height="26" rx="1.4" fill="#FFFFFF" opacity=".9"/>
-  <ellipse cx="54" cy="69" rx="7" ry="9" fill="#FFFFFF" opacity=".92"/>
-  <ellipse cx="78.7" cy="61" rx="9" ry="13" fill="#FFFFFF"/>
-  <ellipse cx="102" cy="69" rx="7" ry="9" fill="#FFFFFF" opacity=".92"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Prune Hill Capital">
+  <rect width="200" height="200" rx="28" fill="#0B2B20"/>
+  <g transform="translate(100,100) scale(1.22) translate(-100,-109)"><rect x="67.25" y="111" width="5.5" height="33" rx="2.75" fill="#FFFFFF"/><circle cx="70" cy="111" r="10" fill="#FFFFFF"/><rect x="97.25" y="96" width="5.5" height="48" rx="2.75" fill="#FFFFFF"/><circle cx="100" cy="96" r="13" fill="#FFFFFF"/><rect x="128.25" y="78" width="5.5" height="66" rx="2.75" fill="#FFFFFF"/><circle cx="131" cy="78" r="16" fill="#FFFFFF"/><path d="M30 152 C60 128 140 128 170 152 Z" fill="#2F6E52"/></g>
 </svg>
