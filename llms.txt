@@ -14,11 +14,11 @@
 
 ## Pages
 
-- [Home](https://hugocc06.github.io/PruneHillCapital./): overview of the Fund
-- [About](https://hugocc06.github.io/PruneHillCapital./about.html): purpose, story, values and non-profit model
-- [Team](https://hugocc06.github.io/PruneHillCapital./team.html): organisation chart and leadership
-- [Investment Mandate](https://hugocc06.github.io/PruneHillCapital./mandate.html): permitted investments, limits, risk framework and governance
-- [Portfolio Framework](https://hugocc06.github.io/PruneHillCapital./portfolio.html): allocation targets, risk limits and ESG benchmarks
-- [Process & Governance](https://hugocc06.github.io/PruneHillCapital./process.html): how trades are researched, pitched, approved and executed
-- [Join the Fund](https://hugocc06.github.io/PruneHillCapital./programme.html): open role, selection process, FAQ and application form
-- [Contact](https://hugocc06.github.io/PruneHillCapital./contact.html)
+- [Home](https://prunehillcapital.com/): overview of the Fund
+- [About](https://prunehillcapital.com/about): purpose, story, values and non-profit model
+- [Team](https://prunehillcapital.com/team): organisation chart and leadership
+- [Investment Mandate](https://prunehillcapital.com/mandate): permitted investments, limits, risk framework and governance
+- [Portfolio Framework](https://prunehillcapital.com/portfolio): allocation targets, risk limits and ESG benchmarks
+- [Process & Governance](https://prunehillcapital.com/process): how trades are researched, pitched, approved and executed
+- [Join the Fund](https://prunehillcapital.com/programme): open role, selection process, FAQ and application form
+- [Contact](https://prunehillcapital.com/contact)

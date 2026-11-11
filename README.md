@@ -41,7 +41,7 @@ Replace the contents of your existing repository with the contents of this folde
 ## Search engines (SEO)
 
 - Every page has a canonical URL, share-preview tags (image: `assets/img/og-image.png`) and structured data (schema.org JSON-LD) describing the Fund. `sitemap.xml` lists the pages and `llms.txt` is a plain-text summary for AI assistants.
-- These use the live address `https://hugocc06.github.io/PruneHillCapital./`. If the site moves (for example to a custom domain), replace that address everywhere: in every `.html` file, `sitemap.xml` and `llms.txt`.
+- These use the live address `https://prunehillcapital.com/` (pages are linked without `.html`, e.g. `/about`). If the domain ever changes, replace that address everywhere: in every `.html` file, `sitemap.xml` and `llms.txt`.
 - Update the `<lastmod>` dates in `sitemap.xml` after significant content changes.
 - Submit the site and `sitemap.xml` in Google Search Console and Bing Webmaster Tools so they index it.
 
