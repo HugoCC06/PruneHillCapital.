@@ -131,12 +131,9 @@ p { margin: 0; }
 .nav { height: var(--header-h); display: flex; align-items: center; gap: 24px; }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); margin-right: auto; }
 .brand img { width: 52px; height: 52px; flex: none; }
-/* Logo: pencil tree on transparent — dark ink on light theme, light ink on dark theme / dark footer */
-.brand .logo-ink-light { display: none; }
-:root[data-theme="dark"] .brand .logo-ink,
-.footer-brand .brand .logo-ink { display: none; }
-:root[data-theme="dark"] .brand .logo-ink-light,
-.footer-brand .brand .logo-ink-light { display: block; }
+/* Logo: pencil tree on transparent — dark green ink; recoloured to off-white on dark theme and the dark footer */
+:root[data-theme="dark"] .brand img.logo,
+.footer-brand .brand img.logo { filter: brightness(0) invert(.94); }
 @media (max-width: 460px) { .brand img { width: 44px; height: 44px; } }
 .brand-text { display: grid; line-height: 1.1; }
 .brand-name { font-family: var(--f-display); font-weight: 600; font-size: 1.2rem; }
