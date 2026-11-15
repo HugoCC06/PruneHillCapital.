@@ -593,3 +593,12 @@ input[type="file"]:hover::file-selector-button { background: var(--brand-2); }
 .kv-roles li + li { padding-top: 8px; border-top: 1px solid var(--line); }
 .kv-roles li::before { content: ""; position: absolute; left: 0; top: .6em; width: 6px; height: 6px; border-radius: 50%; background: var(--brand-2); }
 .kv-roles li + li::before { top: calc(.6em + 8px); }
+
+/* Compact secondary role on the Join page */
+.card.role-compact { margin-top: 40px; display: flex; flex-direction: row; text-align: left; justify-content: space-between; align-items: center; gap: 24px; padding: 20px 24px; }
+.role-compact-text { display: grid; gap: 6px; flex: 1; justify-items: start; text-align: left; }
+.role-compact h3 { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0; font-size: 1.25rem; }
+.role-compact p { margin: 0; color: var(--ink-2); font-size: .95rem; max-width: 70ch; }
+.role-compact .btn { flex: none; }
+.role-compact h3 .pill { font-family: var(--f-body); }
+@media (max-width: 640px) { .card.role-compact { flex-direction: column; align-items: flex-start; gap: 14px; } }

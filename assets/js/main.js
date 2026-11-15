@@ -415,3 +415,11 @@
   window.addEventListener("resize", update);
   update();
 })();
+
+/* Pre-select a role in the application form from "Apply" links */
+document.addEventListener("click", function (e) {
+  var a = e.target.closest && e.target.closest("[data-apply-role]");
+  if (!a) return;
+  var sel = document.getElementById("ap-role");
+  if (sel) sel.value = a.getAttribute("data-apply-role");
+});
