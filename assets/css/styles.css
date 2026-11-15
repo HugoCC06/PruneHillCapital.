@@ -130,7 +130,14 @@ p { margin: 0; }
 .site-header.scrolled { border-bottom-color: var(--line); }
 .nav { height: var(--header-h); display: flex; align-items: center; gap: 24px; }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); margin-right: auto; }
-.brand img { width: 38px; height: 38px; }
+.brand img { width: 52px; height: 52px; flex: none; }
+/* Logo: pencil tree on transparent — dark ink on light theme, light ink on dark theme / dark footer */
+.brand .logo-ink-light { display: none; }
+:root[data-theme="dark"] .brand .logo-ink,
+.footer-brand .brand .logo-ink { display: none; }
+:root[data-theme="dark"] .brand .logo-ink-light,
+.footer-brand .brand .logo-ink-light { display: block; }
+@media (max-width: 460px) { .brand img { width: 44px; height: 44px; } }
 .brand-text { display: grid; line-height: 1.1; }
 .brand-name { font-family: var(--f-display); font-weight: 600; font-size: 1.2rem; }
 .brand-sub { font-family: var(--f-mono); font-size: .64rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
