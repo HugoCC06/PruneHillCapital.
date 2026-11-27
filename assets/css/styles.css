@@ -505,6 +505,7 @@ input[type="file"]:hover::file-selector-button { background: var(--brand-2); }
 .footer-grid h4 { font-family: var(--f-mono); font-size: .74rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: #E2C48A; margin-bottom: 14px; }
 .footer-grid ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: .94rem; }
 .footer-brand p { margin-top: 14px; font-size: .94rem; max-width: 40ch; color: #A9B8AF; }
+.footer-brand p.founded { margin-top: 10px; color: #DDE6E0; font-weight: 500; }
 .footer-brand .brand { color: #fff; }
 .footer-brand .brand-sub { color: #97A79E; }
 .footer-bottom { margin-top: 48px; padding-top: 24px; border-top: 1px solid #26382E; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: .84rem; color: #97A79E; }
